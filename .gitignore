@@ -7,3 +7,4 @@ playwright-report/
 .lighthouseci/
 .env
 .claude/
+dist-fixtures/
