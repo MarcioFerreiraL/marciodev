@@ -1,12 +1,31 @@
 ---
 import "../styles/global.css";
+import type { ImageMetadata } from "astro";
+import { getImage } from "astro:assets";
 import ThemeScript from "../components/ThemeScript.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../i18n/pt";
 
 interface Props {
   title: string;
   description: string;
+  ogImage?: ImageMetadata;
+  type?: "website" | "article";
 }
-const { title, description } = Astro.props;
+const { title, description, ogImage, type = "website" } = Astro.props;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const og = ogImage ? new URL((await getImage({ src: ogImage, width: 1200, format: "png" })).src, site.url).href : undefined;
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  url: site.url,
+  jobTitle: "Técnico de Informática",
+  affiliation: { "@type": "CollegeOrUniversity", name: "Universidade de Pernambuco" },
+  address: { "@type": "PostalAddress", addressLocality: "Surubim", addressRegion: "PE", addressCountry: "BR" },
+  sameAs: [site.github, site.linkedin],
+};
 ---
 <html lang="pt-BR">
   <head>
@@ -14,9 +33,24 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content={type} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {og && <meta property="og:image" content={og} />}
+    <meta name="twitter:card" content={og ? "summary_large_image" : "summary"} />
+    <script type="application/ld+json" set:html={JSON.stringify(person)} />
     <ThemeScript />
   </head>
   <body class="min-h-dvh bg-bg font-sans text-text antialiased">
-    <slot />
+    <Header />
+    <main id="conteudo" class="mx-auto max-w-5xl px-4 sm:px-6">
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>

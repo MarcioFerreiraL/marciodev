@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import { hasPage, sortFeatured } from "../lib/projects";
+import ProjectCard from "./ProjectCard.astro";
+import MysteryCard from "./MysteryCard.astro";
+
+const all = sortFeatured(await getCollection("projetos"));
+---
+<ul class="grid gap-6 sm:grid-cols-2">
+  {all.map((p) => (
+    <li class="reveal flex">
+      {hasPage(p) && p.data.cover ? (
+        <ProjectCard slug={p.id} title={p.data.title} summary={p.data.summary} tags={p.data.tags} cover={p.data.cover} />
+      ) : (
+        <MysteryCard title={p.data.title} summary={p.data.summary} note={p.data.context ?? ""} />
+      )}
+    </li>
+  ))}
+</ul>
