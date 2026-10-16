@@ -7,6 +7,11 @@ status: "destaque"
 cover: "../../assets/projetos/barbearia/cover.webp"
 repo: "https://github.com/MarcioFerreiraL/sistema-barbearia"
 demo: "https://sistema-barbearia-black.vercel.app"
+gallery:
+  - src: "../../assets/projetos/barbearia/desktop.webp"
+    alt: "Página inicial da Barbearia do Zé no computador"
+  - src: "../../assets/projetos/barbearia/mobile.webp"
+    alt: "Página inicial da Barbearia do Zé no celular"
 ---
 
 ## Contexto

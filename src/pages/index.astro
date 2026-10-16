@@ -4,10 +4,25 @@ import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
 import FeaturedGrid from "../components/FeaturedGrid.astro";
 import Contact from "../components/Contact.astro";
-import { t } from "../i18n/pt";
+import { Picture } from "astro:assets";
+import foto from "../assets/foto.png";
+import { site, t } from "../i18n/pt";
 ---
 <Base title={t.meta.title} description={t.meta.description}>
-  <Hero />
+  <Hero>
+    <Picture
+      slot="photo"
+      src={foto}
+      alt={`Foto de ${site.name}, de terno e gravata`}
+      widths={[288, 448, 576]}
+      sizes="(min-width: 768px) 224px, 144px"
+      formats={["avif", "webp"]}
+      fallbackFormat="webp"
+      loading="eager"
+      fetchpriority="high"
+      class="size-36 rounded-full border-2 border-border object-cover md:size-56"
+    />
+  </Hero>
   <section aria-labelledby="destaques-titulo" class="py-12">
     <div class="flex flex-wrap items-baseline justify-between gap-4">
       <h2 id="destaques-titulo" class="font-display text-2xl font-medium">{t.projects.title}</h2>
