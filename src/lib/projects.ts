@@ -1,6 +1,7 @@
 import { z } from "astro/zod";
 
-export const makeProjectSchema = (image: () => z.ZodTypeAny) =>
+// Genérico para preservar o tipo de image() (ImageMetadata) nas páginas.
+export const makeProjectSchema = <I extends z.ZodType>(image: () => I) =>
   z
     .object({
       title: z.string(),

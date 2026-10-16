@@ -12,11 +12,13 @@
     "preview": "astro preview --port 4321",
     "check": "astro check",
     "test": "vitest run",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:e2e:fixtures": "E2E_FIXTURES=1 astro build --outDir dist-fixtures && playwright test --config playwright.fixtures.config.ts"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "@axe-core/playwright": "^4.14.0",
+    "@lhci/cli": "0.15.1",
     "@playwright/test": "^1.64.1",
     "typescript": "^6.0.3",
     "vitest": "^5.0.5"
