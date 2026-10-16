@@ -39,7 +39,8 @@ for (const theme of THEMES) {
       await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
 
       const toggle = page.locator('button[aria-label="Alternar tema"]');
-      const cv = page.locator('a[href="/curriculo-pt.pdf"]').first();
+      // Primeiro link do topo: currículo quando pronto, senão GitHub.
+      const cv = page.locator("main section").first().locator("a").first();
       const cardLink = page.locator('[data-project-card] a[href^="/projetos/"]').first();
 
       // Ordem do documento: cabeçalho → topo (currículo) → destaques.

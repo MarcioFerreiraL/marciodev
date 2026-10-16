@@ -5,6 +5,8 @@ export const site = {
   github: "https://github.com/MarcioFerreiraL",
   linkedin: "https://www.linkedin.com/in/marcioflima/",
   doi: "https://doi.org/10.55034/smrv6n2-005",
+  // Ligue quando public/curriculo-pt.pdf e public/curriculo-en.pdf forem os currículos de verdade.
+  cvReady: false,
 } as const;
 
 export const t = {
