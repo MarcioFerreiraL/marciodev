@@ -6,6 +6,7 @@ order: 3
 status: "destaque"
 cover: "../../assets/projetos/assistencia-tecnica/cover.webp"
 repo: "https://github.com/MarcioFerreiraL/sistema-assistencia-tecnica"
+context: "Disciplina de Programação III (padrões de projeto) · UPE"
 gallery:
   - src: "../../assets/projetos/assistencia-tecnica/tecnico.webp"
     alt: "Área técnica: fila de ordens de serviço disponíveis e reparos em andamento com laudo"

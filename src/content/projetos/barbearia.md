@@ -7,6 +7,7 @@ status: "destaque"
 cover: "../../assets/projetos/barbearia/cover.webp"
 repo: "https://github.com/MarcioFerreiraL/sistema-barbearia"
 demo: "https://sistema-barbearia-black.vercel.app"
+context: "Disciplina de Programação para Dispositivos Móveis · UPE"
 gallery:
   - src: "../../assets/projetos/barbearia/desktop.webp"
     alt: "Página inicial da Barbearia do Zé no computador"
@@ -43,7 +44,7 @@ Reservas feitas por mensagem ou telefone geram sobreposição de horários e fal
 - Toda configuração sensível vem de variáveis de ambiente; os arquivos `.env` não são versionados.
 - O back-end tem `Dockerfile` multi-stage (Maven para compilar, JRE Alpine para rodar) e um Docker Compose com PostgreSQL e healthcheck.
 - Um workflow no GitHub Actions, a cada push na `master`, constrói a imagem, publica no GitHub Container Registry e faz o deploy por SSH na VPS com `docker compose pull` e `up -d`.
-- A API foi publicada numa VPS Oracle Free Tier com nginx e certificado SSL; o front-end fica na Vercel.
+- A API rodava numa VPS Oracle Free Tier atrás de nginx com certificado SSL; o front-end segue publicado na Vercel.
 
 ## Minha contribuição
 

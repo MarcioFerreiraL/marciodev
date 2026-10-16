@@ -8,6 +8,11 @@ cover: "../../assets/projetos/urbansense/cover.webp"
 context: "Projeto em equipe · óculos inteligentes Meta Ray-Ban"
 repo: "https://github.com/MarcioFerreiraL/urbansense-app"
 team: ["Márcio Ferreira Lima", "Carlos Henrique", "Gabriel Lopes"]
+gallery:
+  - src: "../../assets/projetos/urbansense/painel.webp"
+    alt: "Painel do UrbanSense com detecção de movimento, captura automática periódica e botão para registrar ocorrência"
+  - src: "../../assets/projetos/urbansense/configuracoes.webp"
+    alt: "Configurações do UrbanSense: intervalo de captura, voz nos óculos Meta Ray-Ban e simulador de óculos"
 ---
 
 ## Contexto
