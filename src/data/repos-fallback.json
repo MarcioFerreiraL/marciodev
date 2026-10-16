@@ -1,0 +1,252 @@
+[
+  {
+    "name": "clinics-mobile",
+    "description": null,
+    "language": "Dart",
+    "html_url": "https://github.com/MarcioFerreiraL/clinics-mobile",
+    "homepage": null,
+    "pushed_at": "2026-10-14T01:14:08Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "clinics-backend",
+    "description": null,
+    "language": "Java",
+    "html_url": "https://github.com/MarcioFerreiraL/clinics-backend",
+    "homepage": null,
+    "pushed_at": "2026-10-13T22:39:50Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "programacao-mobile",
+    "description": null,
+    "language": "TypeScript",
+    "html_url": "https://github.com/MarcioFerreiraL/programacao-mobile",
+    "homepage": null,
+    "pushed_at": "2026-09-14T23:06:43Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "urbansense-app",
+    "description": "Meta Wearables Device Access Toolkit for Android",
+    "language": "Shell",
+    "html_url": "https://github.com/MarcioFerreiraL/urbansense-app",
+    "homepage": null,
+    "pushed_at": "2026-08-21T16:53:50Z",
+    "stargazers_count": 0,
+    "fork": true
+  },
+  {
+    "name": "diario_bot",
+    "description": null,
+    "language": "Python",
+    "html_url": "https://github.com/MarcioFerreiraL/diario_bot",
+    "homepage": null,
+    "pushed_at": "2026-08-14T18:49:16Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "sistema-barbearia",
+    "description": "Sistema de Agendamento de Barbearia",
+    "language": "TypeScript",
+    "html_url": "https://github.com/MarcioFerreiraL/sistema-barbearia",
+    "homepage": "https://sistema-barbearia-black.vercel.app",
+    "pushed_at": "2026-07-03T01:20:30Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "MarcioFerreiraL",
+    "description": null,
+    "language": null,
+    "html_url": "https://github.com/MarcioFerreiraL/MarcioFerreiraL",
+    "homepage": null,
+    "pushed_at": "2026-06-27T14:44:17Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "singleton",
+    "description": null,
+    "language": "Java",
+    "html_url": "https://github.com/MarcioFerreiraL/singleton",
+    "homepage": null,
+    "pushed_at": "2026-05-27T20:38:40Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "programacao-web",
+    "description": null,
+    "language": "HTML",
+    "html_url": "https://github.com/MarcioFerreiraL/programacao-web",
+    "homepage": null,
+    "pushed_at": "2026-05-19T00:38:38Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "padroes-de-projeto",
+    "description": null,
+    "language": "C++",
+    "html_url": "https://github.com/MarcioFerreiraL/padroes-de-projeto",
+    "homepage": null,
+    "pushed_at": "2026-05-07T01:03:29Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "perfil-web",
+    "description": null,
+    "language": "HTML",
+    "html_url": "https://github.com/MarcioFerreiraL/perfil-web",
+    "homepage": null,
+    "pushed_at": "2026-04-21T00:50:59Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "sistema-assistencia-tecnica",
+    "description": null,
+    "language": "Java",
+    "html_url": "https://github.com/MarcioFerreiraL/sistema-assistencia-tecnica",
+    "homepage": null,
+    "pushed_at": "2025-11-26T16:33:06Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "projeto-vue-js",
+    "description": null,
+    "language": "Vue",
+    "html_url": "https://github.com/MarcioFerreiraL/projeto-vue-js",
+    "homepage": null,
+    "pushed_at": "2025-11-21T01:28:35Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "projeto-front-end-estoque",
+    "description": null,
+    "language": "HTML",
+    "html_url": "https://github.com/MarcioFerreiraL/projeto-front-end-estoque",
+    "homepage": null,
+    "pushed_at": "2025-11-08T18:17:24Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "workshop-streamlit",
+    "description": "workshop da semana universitario sobre streamlit",
+    "language": "Python",
+    "html_url": "https://github.com/MarcioFerreiraL/workshop-streamlit",
+    "homepage": null,
+    "pushed_at": "2025-10-31T16:40:37Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "sistema-estoque",
+    "description": "Projeto de Software",
+    "language": "Java",
+    "html_url": "https://github.com/MarcioFerreiraL/sistema-estoque",
+    "homepage": null,
+    "pushed_at": "2025-10-29T16:31:13Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "programacao-III",
+    "description": "Programação 3",
+    "language": "Java",
+    "html_url": "https://github.com/MarcioFerreiraL/programacao-III",
+    "homepage": null,
+    "pushed_at": "2025-10-25T00:44:58Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "estrutura-de-dados",
+    "description": "Cadeira de Estrutura de Dados",
+    "language": "Jupyter Notebook",
+    "html_url": "https://github.com/MarcioFerreiraL/estrutura-de-dados",
+    "homepage": null,
+    "pushed_at": "2025-10-18T23:59:28Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "sistema-hotelaria",
+    "description": "Meu projeto da disciplina Programacao II, sistema de hotelaria em Java usando conceitos de OO",
+    "language": "Java",
+    "html_url": "https://github.com/MarcioFerreiraL/sistema-hotelaria",
+    "homepage": null,
+    "pushed_at": "2025-06-16T23:55:15Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "programacao-II",
+    "description": null,
+    "language": "Java",
+    "html_url": "https://github.com/MarcioFerreiraL/programacao-II",
+    "homepage": null,
+    "pushed_at": "2025-04-25T15:30:06Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "programacao-I",
+    "description": "Atividades das aulas de programação de engenharia de software",
+    "language": "Python",
+    "html_url": "https://github.com/MarcioFerreiraL/programacao-I",
+    "homepage": null,
+    "pushed_at": "2024-12-01T23:39:29Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "javascript",
+    "description": null,
+    "language": "JavaScript",
+    "html_url": "https://github.com/MarcioFerreiraL/javascript",
+    "homepage": null,
+    "pushed_at": "2024-02-02T22:31:32Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "html-css",
+    "description": null,
+    "language": "HTML",
+    "html_url": "https://github.com/MarcioFerreiraL/html-css",
+    "homepage": null,
+    "pushed_at": "2024-01-14T01:31:56Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "python",
+    "description": "Meus exercicios de python que fiz durante o curso do Gustavo Guanabara",
+    "language": "Python",
+    "html_url": "https://github.com/MarcioFerreiraL/python",
+    "homepage": "",
+    "pushed_at": "2023-12-22T18:51:13Z",
+    "stargazers_count": 0,
+    "fork": false
+  },
+  {
+    "name": "php",
+    "description": "Meus projetos que utilizei PHP",
+    "language": "PHP",
+    "html_url": "https://github.com/MarcioFerreiraL/php",
+    "homepage": null,
+    "pushed_at": "2023-12-20T01:37:50Z",
+    "stargazers_count": 0,
+    "fork": false
+  }
+]
