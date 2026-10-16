@@ -14,7 +14,9 @@ interface Props {
   type?: "website" | "article";
 }
 const { title, description, ogImage, type = "website" } = Astro.props;
-const canonical = new URL(Astro.url.pathname, site.url).href;
+// Com build.format "file" o pathname do build termina em .html; a URL pública não tem extensão.
+const path = Astro.url.pathname.replace(/(\/index)?\.html$/, "") || "/";
+const canonical = new URL(path, site.url).href;
 const og = ogImage ? new URL((await getImage({ src: ogImage, width: 1200, format: "png" })).src, site.url).href : undefined;
 const person = {
   "@context": "https://schema.org",

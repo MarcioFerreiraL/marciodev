@@ -26,7 +26,9 @@ O CI (`.github/workflows/ci.yml`) roda tudo isso em cada push e pull request.
 ## Como adicionar um projeto
 
 1. Crie `src/content/projetos/<slug>.md` (o nome do arquivo vira a URL `/projetos/<slug>`).
-2. Coloque a capa em `src/assets/projetos/<slug>/cover.webp` (1200x630).
+2. Coloque a capa em `src/assets/projetos/<slug>/cover.webp` (1200x630). Ela é a imagem de compartilhamento (og:image) e aparece no card enquanto o projeto não tiver banner ilustrado.
+   - Opcional: crie o banner 2D em `src/components/banners/<Nome>.astro` (usando `Frame.astro`) e registre o slug em `src/components/banners/index.ts`.
+   - Prints vão em `gallery` no frontmatter e aparecem só na página do projeto.
 3. Preencha o frontmatter (schema em `src/lib/projects.ts`) e escreva o corpo com as seções `## Contexto`, `## Problema`, `## Solução`, `## Arquitetura`, `## Infra e deploy`, `## Minha contribuição` e `## Desafios e aprendizados`.
 4. Rode `npm test && npm run build` e faça o push: o deploy publica sozinho.
 
