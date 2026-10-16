@@ -9,10 +9,10 @@ const all = sortFeatured(await getCollection("projetos"));
 <ul class="grid gap-6 sm:grid-cols-2">
   {all.map((p) => (
     <li class="reveal flex">
-      {hasPage(p) && p.data.cover ? (
-        <ProjectCard slug={p.id} title={p.data.title} summary={p.data.summary} tags={p.data.tags} cover={p.data.cover} />
+      {hasPage(p) ? (
+        <ProjectCard slug={p.id} title={p.data.title} summary={p.data.summary} tags={p.data.tags} />
       ) : (
-        <MysteryCard title={p.data.title} summary={p.data.summary} note={p.data.context ?? ""} />
+        <MysteryCard slug={p.id} title={p.data.title} summary={p.data.summary} note={p.data.context ?? ""} />
       )}
     </li>
   ))}

@@ -1,0 +1,66 @@
+---
+import Frame from "./Frame.astro";
+---
+<Frame id="barbearia" label="Ilustração: poste de barbearia, tesoura, pente, navalha e calendário de agendamento online">
+  <!-- poste de barbearia -->
+  <g>
+    <rect x="96" y="40" width="64" height="18" rx="9" class="fill-brown" />
+    <clipPath id="pole-clip"><rect x="104" y="58" width="48" height="230" rx="8" /></clipPath>
+    <rect x="104" y="58" width="48" height="230" rx="8" class="fill-surface" />
+    <g clip-path="url(#pole-clip)">
+      {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+        <path d={`M90 ${40 + i * 44}l80 -40v22l-80 40z`} class={i % 2 ? "fill-blue" : "fill-purple"} />
+      ))}
+    </g>
+    <rect x="96" y="288" width="64" height="18" rx="9" class="fill-brown" />
+    <circle cx="128" cy="34" r="12" class="fill-brown" />
+  </g>
+  <!-- calendário -->
+  <g>
+    <rect x="286" y="70" width="230" height="230" rx="18" class="fill-surface stroke-text" stroke-width="3" />
+    <rect x="286" y="70" width="230" height="56" rx="18" class="fill-purple" />
+    <rect x="286" y="104" width="230" height="22" class="fill-purple" />
+    <rect x="330" y="54" width="12" height="34" rx="6" class="fill-text" /><rect x="460" y="54" width="12" height="34" rx="6" class="fill-text" />
+    <text x="401" y="108" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="500" class="fill-surface">Agenda</text>
+    {Array.from({ length: 12 }, (_, i) => (
+      <rect x={306 + (i % 4) * 52} y={142 + Math.floor(i / 4) * 50} width="38" height="36" rx="8" class={i === 6 ? "fill-blue" : "fill-tag"} />
+    ))}
+    <path d="M412 230l8 8 16-18" class="fill-none stroke-surface" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  <!-- relógio -->
+  <g>
+    <circle cx="560" cy="290" r="44" class="fill-blue" />
+    <circle cx="560" cy="290" r="34" class="fill-surface" />
+    <path d="M560 268v24l16 10" class="fill-none stroke-text" stroke-width="5" stroke-linecap="round" />
+  </g>
+  <!-- tesoura -->
+  <g transform="translate(640 70) rotate(30)">
+    <circle cx="0" cy="110" r="20" class="fill-none stroke-purple" stroke-width="9" />
+    <circle cx="44" cy="110" r="20" class="fill-none stroke-purple" stroke-width="9" />
+    <path d="M10 92L52 0l8 4-36 92z" class="fill-muted" />
+    <path d="M34 92L-8 0l-8 4 36 92z" class="fill-muted" />
+    <circle cx="22" cy="72" r="5" class="fill-text" />
+  </g>
+  <!-- pente -->
+  <g transform="translate(600 210) rotate(-12)">
+    <rect x="0" y="0" width="150" height="26" rx="8" class="fill-brown" />
+    {Array.from({ length: 13 }, (_, i) => <rect x={8 + i * 11} y="22" width="5" height="30" rx="2" class="fill-brown" />)}
+  </g>
+  <!-- navalha -->
+  <g transform="translate(200 300) rotate(-20)">
+    <rect x="0" y="0" width="90" height="22" rx="11" class="fill-text" />
+    <path d="M86 4h70l-10 18H86z" class="fill-muted" />
+  </g>
+  <!-- cadeado (JWT) e engrenagem (API) -->
+  <g>
+    <rect x="40" y="330" width="44" height="36" rx="6" class="fill-purple" />
+    <path d="M50 330v-10a12 12 0 0 1 24 0v10" class="fill-none stroke-purple" stroke-width="6" />
+    <circle cx="62" cy="348" r="5" class="fill-surface" />
+  </g>
+  <g transform="translate(740 360)">
+    {Array.from({ length: 8 }, (_, i) => <rect x="-6" y="-34" width="12" height="16" rx="3" transform={`rotate(${i * 45})`} class="fill-blue" />)}
+    <circle r="22" class="fill-blue" /><circle r="9" class="fill-tag" />
+  </g>
+  <!-- bigode -->
+  <path d="M520 360c-20 0-28 20-46 20 22 10 40-4 46-12 6 8 24 22 46 12-18 0-26-20-46-20z" class="fill-text" />
+</Frame>

@@ -6,6 +6,15 @@ order: 3
 status: "destaque"
 cover: "../../assets/projetos/assistencia-tecnica/cover.webp"
 repo: "https://github.com/MarcioFerreiraL/sistema-assistencia-tecnica"
+gallery:
+  - src: "../../assets/projetos/assistencia-tecnica/tecnico.webp"
+    alt: "Área técnica: fila de ordens de serviço disponíveis e reparos em andamento com laudo"
+  - src: "../../assets/projetos/assistencia-tecnica/atendente.webp"
+    alt: "Painel de atendimento com cadastro de clientes e últimas solicitações por status"
+  - src: "../../assets/projetos/assistencia-tecnica/cliente.webp"
+    alt: "Área do cliente com a solicitação aberta e opção de cancelar"
+  - src: "../../assets/projetos/assistencia-tecnica/login.webp"
+    alt: "Tela de acesso por tipo de usuário e CPF"
 ---
 
 ## Contexto

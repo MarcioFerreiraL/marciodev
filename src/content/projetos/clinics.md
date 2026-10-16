@@ -1,7 +1,7 @@
 ---
 title: "Clinics"
 summary: "API em Spring Boot que compara preços de exames em Surubim-PE, com CI/CD, Docker e deploy em VPS atrás de Cloudflare Tunnel."
-tags: ["Spring Boot", "PostgreSQL", "Docker", "CI/CD"]
+tags: ["Spring Boot", "Flutter", "Docker", "CI/CD"]
 order: 1
 status: "destaque"
 cover: "../../assets/projetos/clinics/cover.webp"

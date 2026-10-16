@@ -1,0 +1,33 @@
+---
+import Frame from "./Frame.astro";
+---
+<Frame id="observatorio" label="Ilustração em construção: prédio da universidade, gráficos desfocados e um cadeado">
+  <!-- prédio com colunas -->
+  <g>
+    <path d="M250 150l150-70 150 70z" class="fill-brown" />
+    <rect x="250" y="150" width="300" height="18" class="fill-brown" />
+    {[0, 1, 2, 3, 4].map((i) => <rect x={274 + i * 58} y="176" width="22" height="120" rx="4" class="fill-surface stroke-border" stroke-width="2" />)}
+    <rect x="236" y="296" width="328" height="22" rx="4" class="fill-brown" />
+  </g>
+  <!-- gráficos esmaecidos -->
+  <g opacity="0.55">
+    {[60, 100, 40, 130, 90].map((h, i) => <rect x={60 + i * 30} y={300 - h} width="20" height={h} rx="4" class={i % 2 ? "fill-blue" : "fill-purple"} />)}
+    <path d="M610 280l40-50 40 20 50-70" class="fill-none stroke-blue" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="690" cy="110" r="44" class="fill-none stroke-purple" stroke-width="16" stroke-dasharray="180 100" />
+  </g>
+  <!-- faixa de obra -->
+  <g transform="translate(0 340)">
+    <rect width="800" height="34" class="fill-text" />
+    {Array.from({ length: 22 }, (_, i) => <path d={`M${i * 40} 34l20-34h20l-20 34z`} class="fill-brown" />)}
+  </g>
+  <!-- cadeado -->
+  <g transform="translate(372 196)">
+    <path d="M10 40V24a18 18 0 0 1 36 0v16" class="fill-none stroke-purple" stroke-width="9" />
+    <rect x="0" y="38" width="56" height="48" rx="10" class="fill-purple" />
+    <circle cx="28" cy="58" r="7" class="fill-surface" /><rect x="25" y="60" width="6" height="14" rx="3" class="fill-surface" />
+  </g>
+  <!-- interrogações -->
+  <g font-family="Space Grotesk, sans-serif" font-weight="500" class="fill-muted">
+    <text x="110" y="120" font-size="64">?</text><text x="580" y="90" font-size="44">?</text><text x="200" y="70" font-size="34">?</text>
+  </g>
+</Frame>

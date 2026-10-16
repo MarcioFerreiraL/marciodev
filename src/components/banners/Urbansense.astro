@@ -1,0 +1,65 @@
+---
+import Frame from "./Frame.astro";
+---
+<Frame id="urbansense" label="Ilustração: óculos inteligentes enquadrando uma rua com lixo e um buraco detectados por caixas de IA, e um mapa de ocorrências">
+  <!-- rua em perspectiva -->
+  <path d="M250 420L360 200h80l110 220z" class="fill-border" />
+  <path d="M400 210v24M400 260v34M400 322v44M400 392v28" class="stroke-tag" stroke-width="6" stroke-linecap="round" />
+  <!-- prédios -->
+  <g class="fill-surface stroke-border" stroke-width="2">
+    <rect x="200" y="110" width="70" height="140" /><rect x="530" y="90" width="80" height="160" />
+  </g>
+  <g class="fill-border">
+    {[0, 1, 2, 3].map((r) => [0, 1].map((c) => <rect x={214 + c * 26} y={126 + r * 28} width="16" height="16" rx="2" />))}
+    {[0, 1, 2, 3, 4].map((r) => [0, 1, 2].map((c) => <rect x={544 + c * 22} y={106 + r * 28} width="14" height="16" rx="2" />))}
+  </g>
+  <!-- lixo detectado -->
+  <g>
+    <rect x="300" y="290" width="44" height="54" rx="5" class="fill-muted" />
+    <rect x="294" y="282" width="56" height="12" rx="4" class="fill-text" />
+    <path d="M310 300v34M322 300v34M334 300v34" class="stroke-surface" stroke-width="3" />
+    <rect x="282" y="262" width="80" height="94" rx="4" class="fill-none stroke-purple" stroke-width="4" stroke-dasharray="10 6" />
+    <rect x="282" y="240" width="96" height="22" rx="4" class="fill-purple" />
+    <text x="290" y="256" font-family="JetBrains Mono, monospace" font-size="13" font-weight="500" class="fill-surface">Trash 0.87</text>
+  </g>
+  <!-- buraco detectado -->
+  <g>
+    <ellipse cx="470" cy="372" rx="46" ry="14" class="fill-text" />
+    <rect x="414" y="346" width="112" height="44" rx="4" class="fill-none stroke-blue" stroke-width="4" stroke-dasharray="10 6" />
+    <rect x="414" y="324" width="112" height="22" rx="4" class="fill-blue" />
+    <text x="422" y="340" font-family="JetBrains Mono, monospace" font-size="13" font-weight="500" class="fill-surface">pothole 0.91</text>
+  </g>
+  <!-- óculos -->
+  <g>
+    <rect x="232" y="36" width="140" height="78" rx="30" class="fill-none stroke-text" stroke-width="10" />
+    <rect x="428" y="36" width="140" height="78" rx="30" class="fill-none stroke-text" stroke-width="10" />
+    <path d="M372 64q28 -18 56 0" class="fill-none stroke-text" stroke-width="10" />
+    <path d="M232 60l-40 -10M568 60l40 -10" class="stroke-text" stroke-width="10" stroke-linecap="round" />
+    <circle cx="246" cy="52" r="7" class="fill-purple" />
+    <circle cx="246" cy="52" r="3" class="fill-surface" />
+  </g>
+  <!-- ondas de envio para a API -->
+  <g class="fill-none stroke-brown" stroke-width="4" stroke-linecap="round">
+    <path d="M640 40a26 26 0 0 1 0 36M656 28a46 46 0 0 1 0 60M672 16a66 66 0 0 1 0 84" />
+  </g>
+  <!-- mapa de ocorrências -->
+  <g transform="translate(640 160)">
+    <rect x="0" y="0" width="130" height="150" rx="12" class="fill-surface stroke-text" stroke-width="3" />
+    <path d="M10 40q40 20 60 0t50 10M10 100q30 -20 60 10t50 -10" class="fill-none stroke-border" stroke-width="5" />
+    <path d="M44 50c-10 0-17 7-17 16 0 13 17 28 17 28s17-15 17-28c0-9-7-16-17-16z" class="fill-purple" />
+    <path d="M92 86c-10 0-17 7-17 16 0 13 17 28 17 28s17-15 17-28c0-9-7-16-17-16z" class="fill-blue" />
+  </g>
+  <!-- servidor (API YOLO) -->
+  <g transform="translate(60 180)">
+    {[0, 1, 2].map((i) => (
+      <g><rect x="0" y={i * 42} width="110" height="36" rx="8" class="fill-text" /><circle cx="20" cy={i * 42 + 18} r="5" class={i === 1 ? "fill-purple" : "fill-blue"} /><rect x="36" y={i * 42 + 15} width="58" height="6" rx="3" class="fill-muted" /></g>
+    ))}
+    <text x="55" y="152" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" font-weight="500" class="fill-brown">/predict</text>
+  </g>
+  <!-- câmera -->
+  <g transform="translate(70 40)">
+    <rect x="0" y="12" width="84" height="58" rx="10" class="fill-brown" />
+    <rect x="22" y="0" width="30" height="16" rx="4" class="fill-brown" />
+    <circle cx="42" cy="41" r="18" class="fill-surface" /><circle cx="42" cy="41" r="9" class="fill-text" />
+  </g>
+</Frame>
