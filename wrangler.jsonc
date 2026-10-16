@@ -1,0 +1,12 @@
+// Worker só com arquivos estáticos (Cloudflare Workers Static Assets). O build roda `npm run build` antes do deploy.
+{
+  "name": "marciodev",
+  "compatibility_date": "2026-10-16",
+  "assets": {
+    "directory": "./dist",
+    // Rotas inexistentes recebem dist/404.html com status 404.
+    "not_found_handling": "404-page",
+    // /projetos serve projetos.html e /projetos.html redireciona para /projetos.
+    "html_handling": "auto-trailing-slash"
+  }
+}
