@@ -16,8 +16,12 @@ npm run dev    # http://localhost:4321
 
 ```bash
 npm test           # unitários (Vitest)
-npm run test:e2e   # navegador (Playwright), sobe o build com `npm run preview`
+npm run build && npm run test:e2e   # navegador (Playwright) contra dist/ na porta 4322
+npm run test:e2e:fixtures           # build com projeto fictício longo (dist-fixtures/, porta 4323)
+npx lhci autorun                    # Lighthouse celular em dist/ (≥ 0.95); sem Chrome no sistema, use CHROME_PATH
 ```
+
+O CI (`.github/workflows/ci.yml`) roda tudo isso em cada push e pull request.
 
 ## Como adicionar um projeto
 
