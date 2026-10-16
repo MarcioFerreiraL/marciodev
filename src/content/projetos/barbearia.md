@@ -7,7 +7,7 @@ status: "destaque"
 cover: "../../assets/projetos/barbearia/cover.webp"
 repo: "https://github.com/MarcioFerreiraL/sistema-barbearia"
 demo: "https://sistema-barbearia-black.vercel.app"
-context: "Disciplina de Programação para Dispositivos Móveis · UPE"
+context: "Disciplina de Programação Web · UPE"
 gallery:
   - src: "../../assets/projetos/barbearia/desktop.webp"
     alt: "Página inicial da Barbearia do Zé no computador"
