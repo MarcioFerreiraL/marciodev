@@ -28,7 +28,7 @@ export const t = {
     paragraphs: [
       "Trabalho como técnico de informática na Universidade de Pernambuco, no campus Surubim, e curso Engenharia de Software na mesma universidade. Antes disso, passei por provedores de internet da região, onde aprendi na prática como redes e equipamentos se comportam fora do laboratório.",
       "No desenvolvimento, gosto do que fica atrás da tela: APIs bem testadas, bancos de dados, containers, pipelines de CI/CD e servidores que continuam de pé. Meus projetos mais recentes rodam numa VPS que eu mesmo configuro, com Docker e Cloudflare Tunnel.",
-      "No tempo livre, atendo como técnico de manutenção pela Márcio Tec.",
+      "No tempo livre, trabalho como autônomo na Márcio Tec, com manutenção de computadores e configuração de redes.",
     ],
     publicationLabel: "Publicação",
     publication:
@@ -44,5 +44,4 @@ export const t = {
     title: "Contato",
     text: "Estou buscando estágio ou primeira vaga em Backend, DevOps ou Infraestrutura. Se quiser conversar, me escreva.",
   },
-  footer: "Feito com Astro e publicado no Cloudflare Pages.",
 } as const;
