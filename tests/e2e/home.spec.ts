@@ -22,6 +22,12 @@ test.describe("home", () => {
     }
   });
 
+  test("currículos baixam com nome padrão", async ({ page }) => {
+    test.skip(!site.cvReady, "currículos ainda não publicados");
+    await expect(page.locator('a[href="/curriculo-pt.pdf"]')).toHaveAttribute("download", "Marcio-Ferreira-Lima-Curriculo.pdf");
+    await expect(page.locator('a[href="/curriculo-en.pdf"]')).toHaveAttribute("download", "Marcio-Ferreira-Lima-Resume.pdf");
+  });
+
   test("PDFs provisórios não são publicados", async ({ request }) => {
     test.skip(site.cvReady, "currículos prontos");
     for (const href of ["/curriculo-pt.pdf", "/curriculo-en.pdf"]) {

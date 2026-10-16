@@ -6,3 +6,9 @@
 
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+/curriculo-pt.pdf
+  Content-Disposition: inline; filename="Marcio-Ferreira-Lima-Curriculo.pdf"
+
+/curriculo-en.pdf
+  Content-Disposition: inline; filename="Marcio-Ferreira-Lima-Resume.pdf"
