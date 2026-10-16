@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  items: { src: ImageMetadata; alt: string }[];
+}
+const { items } = Astro.props;
+---
+{items.length > 0 && (
+  <section aria-labelledby="galeria-titulo" class="mt-12">
+    <h2 id="galeria-titulo" class="font-display text-2xl font-medium">Galeria</h2>
+    <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+      {items.map((it) => (
+        <li class="overflow-hidden rounded-xl border border-border bg-surface">
+          <Image src={it.src} alt={it.alt} width={900} loading="lazy" class="h-auto w-full" />
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
