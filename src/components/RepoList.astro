@@ -1,0 +1,23 @@
+---
+import type { Repo } from "../lib/github";
+
+interface Props {
+  repos: Repo[];
+}
+const { repos } = Astro.props;
+const fmt = new Intl.DateTimeFormat("pt-BR", { month: "short", year: "numeric" });
+---
+<ul class="divide-y divide-border rounded-2xl border border-border">
+  {repos.map((r) => (
+    <li data-other-repo class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 px-5 py-4">
+      <div class="min-w-0">
+        <a href={r.url} data-repo-name class="font-mono text-sm text-blue underline-offset-4 hover:underline">{r.name}</a>
+        {r.description && <p class="mt-1 text-sm text-muted">{r.description}</p>}
+      </div>
+      <p class="font-mono text-xs text-muted">
+        {r.language && <span class="text-brown">{r.language}</span>}
+        {r.pushedAt && <span> · {fmt.format(new Date(r.pushedAt))}</span>}
+      </p>
+    </li>
+  ))}
+</ul>

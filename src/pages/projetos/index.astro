@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import FeaturedGrid from "../../components/FeaturedGrid.astro";
+import RepoList from "../../components/RepoList.astro";
+import { getOtherRepos } from "../../lib/github";
+
+const repos = await getOtherRepos();
+const count = (await getCollection("projetos")).length;
+---
+<Base title="Projetos · Márcio Ferreira Lima" description="Projetos de backend, DevOps e infraestrutura de Márcio Ferreira Lima.">
+  <header class="pt-10 pb-8">
+    <p class="font-mono text-sm text-brown">~/marciodev $ ls projetos</p>
+    <h1 class="mt-2 font-display text-4xl font-medium tracking-tight">Projetos</h1>
+    <p class="mt-4 max-w-2xl text-lg text-muted">Os {count - 1} primeiros têm estudo de caso completo. Abaixo, o restante do que está público no meu GitHub.</p>
+  </header>
+  <FeaturedGrid />
+  <section aria-labelledby="outros-titulo" class="mt-16">
+    <h2 id="outros-titulo" class="font-display text-2xl font-medium">Outros projetos</h2>
+    <p class="mt-2 text-sm text-muted">Atualizado automaticamente a partir do GitHub.</p>
+    <div class="mt-6"><RepoList repos={repos} /></div>
+  </section>
+</Base>

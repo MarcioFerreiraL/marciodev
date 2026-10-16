@@ -1,0 +1,26 @@
+---
+interface Props {
+  title: string;
+  summary: string;
+  context?: string;
+  tags: string[];
+  repo?: string;
+  demo?: string;
+}
+const { title, summary, context, tags, repo, demo } = Astro.props;
+---
+<header class="pt-10 pb-8">
+  <a href="/projetos" class="font-mono text-sm text-blue underline-offset-4 hover:underline">← Projetos</a>
+  {context && <p class="mt-6 font-mono text-sm text-brown">{context}</p>}
+  <h1 class="mt-2 font-display text-4xl font-medium tracking-tight sm:text-5xl">{title}</h1>
+  <p class="mt-4 max-w-2xl text-lg text-muted">{summary}</p>
+  <ul class="mt-5 flex flex-wrap gap-2 font-mono text-xs" aria-label="Tecnologias">
+    {tags.map((tag) => <li class="rounded-md bg-tag px-2 py-0.5 text-brown">{tag}</li>)}
+  </ul>
+  {(repo || demo) && (
+    <div class="mt-6 flex flex-wrap gap-3">
+      {demo && <a href={demo} class="rounded-lg bg-purple px-5 py-2.5 text-sm font-medium text-on-purple hover:opacity-90">Ver demo</a>}
+      {repo && <a href={repo} class="rounded-lg border border-border px-5 py-2.5 text-sm font-medium hover:bg-surface">Código no GitHub</a>}
+    </div>
+  )}
+</header>

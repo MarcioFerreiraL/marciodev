@@ -1,0 +1,31 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import CaseStudyHeader from "../../components/CaseStudyHeader.astro";
+import Gallery from "../../components/Gallery.astro";
+import { hasPage } from "../../lib/projects";
+
+export async function getStaticPaths() {
+  const all = await getCollection("projetos");
+  return all.filter(hasPage).map((p) => ({ params: { slug: p.id }, props: { project: p } }));
+}
+
+const { project } = Astro.props;
+const { data } = project;
+const { Content } = await render(project);
+---
+<Base title={`${data.title} · Márcio Ferreira Lima`} description={data.summary} ogImage={data.cover} type="article">
+  <article>
+    <CaseStudyHeader title={data.title} summary={data.summary} context={data.context} tags={data.tags} repo={data.repo} demo={data.demo} />
+    <div class="prose-case">
+      <Content />
+    </div>
+    <Gallery items={data.gallery ?? []} />
+    {data.team && data.team.length > 1 && (
+      <section aria-labelledby="equipe-titulo" class="mt-12">
+        <h2 id="equipe-titulo" class="font-display text-2xl font-medium">Equipe</h2>
+        <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-muted">{data.team.map((n) => <li>{n}</li>)}</ul>
+      </section>
+    )}
+  </article>
+</Base>
