@@ -9,6 +9,15 @@ context: "Disciplina de Programação para Dispositivos Móveis · UPE"
 repo: "https://github.com/MarcioFerreiraL/clinics-backend"
 demo: "https://clinics.marciodev.com"
 team: ["Márcio Ferreira Lima", "Lucas Nascimento Barros"]
+gallery:
+  - src: "../../assets/projetos/clinics/landing.webp"
+    alt: "Página pública do Clinics com download do app para Android, iPhone e navegador"
+  - src: "../../assets/projetos/clinics/app.webp"
+    alt: "Tela de login do app Clinics, com entrada por WhatsApp ou como visitante"
+  - src: "../../assets/projetos/clinics/inicio.webp"
+    alt: "Tela inicial do app com busca de exames e os mais buscados em Surubim"
+  - src: "../../assets/projetos/clinics/comparacao.webp"
+    alt: "Comparação de preços de um ultrassom em várias clínicas, com botão de WhatsApp"
 ---
 
 ## Contexto
