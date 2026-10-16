@@ -14,13 +14,13 @@ import { site, t } from "../i18n/pt";
       slot="photo"
       src={foto}
       alt={`Foto de ${site.name}, de terno e gravata`}
-      widths={[288, 448, 576]}
-      sizes="(min-width: 768px) 224px, 144px"
+      widths={[192, 288, 448, 576]}
+      sizes="(min-width: 768px) 224px, (min-width: 640px) 144px, 96px"
       formats={["avif", "webp"]}
       fallbackFormat="webp"
       loading="eager"
       fetchpriority="high"
-      class="size-36 rounded-full border-2 border-border object-cover md:size-56"
+      class="size-24 rounded-full border-2 border-border object-cover sm:size-36 md:size-56"
     />
   </Hero>
   <section aria-labelledby="destaques-titulo" class="py-12">
