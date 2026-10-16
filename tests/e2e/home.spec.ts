@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { site } from "../../src/i18n/pt";
 
 test.describe("home", () => {
   test.beforeEach(async ({ page }) => {
@@ -13,9 +14,18 @@ test.describe("home", () => {
     await expect(page.locator("body")).toContainText("Backend · DevOps · Infraestrutura");
   });
 
-  test("currículos para download", async ({ page }) => {
+  test("currículos para download só quando prontos", async ({ page }) => {
     for (const href of ["/curriculo-pt.pdf", "/curriculo-en.pdf"]) {
-      await expect(page.locator(`a[href="${href}"][download]`).first()).toBeVisible();
+      const link = page.locator(`a[href="${href}"][download]`);
+      if (site.cvReady) await expect(link.first()).toBeVisible();
+      else await expect(link).toHaveCount(0);
+    }
+  });
+
+  test("PDFs provisórios não são publicados", async ({ request }) => {
+    test.skip(site.cvReady, "currículos prontos");
+    for (const href of ["/curriculo-pt.pdf", "/curriculo-en.pdf"]) {
+      expect((await request.get(href)).status()).toBe(404);
     }
   });
 
