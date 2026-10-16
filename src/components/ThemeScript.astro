@@ -1,0 +1,19 @@
+---
+import { toCssVars } from "../design/palette";
+
+// Sem data-theme (JS desligado) o sistema decide; com JS, o script fixa o tema antes do primeiro paint.
+const css = `:root:not([data-theme]),:root[data-theme=dark]{${toCssVars("dark")};color-scheme:dark}
+@media (prefers-color-scheme: light){:root:not([data-theme]){${toCssVars("light")};color-scheme:light}}
+:root[data-theme=light]{${toCssVars("light")};color-scheme:light}`;
+---
+<style is:inline set:html={css}></style>
+<script is:inline>
+  (() => {
+    let saved = null;
+    try { saved = localStorage.getItem("theme"); } catch {}
+    const theme = saved === "light" || saved === "dark"
+      ? saved
+      : matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    document.documentElement.dataset.theme = theme;
+  })();
+</script>

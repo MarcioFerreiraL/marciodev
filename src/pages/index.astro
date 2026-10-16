@@ -1,13 +1,8 @@
 ---
-import "../styles/global.css";
+import Base from "../layouts/Base.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
 ---
-<html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Márcio Ferreira Lima</title>
-  </head>
-  <body>
-    <h1>Márcio Ferreira Lima</h1>
-  </body>
-</html>
+<Base title="Márcio Ferreira Lima" description="Portfólio de Márcio Ferreira Lima.">
+  <ThemeToggle />
+  <h1 class="font-display text-3xl">Márcio Ferreira Lima</h1>
+</Base>
