@@ -9,11 +9,13 @@ interface Props {
   summary: string;
   tags: string[];
   cover: ImageMetadata;
+  /** Carrega a capa sem lazy-load (quando o card aparece na primeira tela). */
+  eager?: boolean;
 }
-const { slug, title, summary, tags, cover } = Astro.props;
+const { slug, title, summary, tags, cover, eager = false } = Astro.props;
 ---
 <article data-project-card class="card w-full group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-purple">
-  <Image src={cover} alt="" width={800} height={420} class="aspect-[40/21] w-full object-cover" />
+  <Image src={cover} alt="" width={800} height={420} widths={[400, 600, 800, 960]} sizes="(min-width: 1024px) 476px, (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)" loading={eager ? "eager" : "lazy"} class="aspect-[40/21] w-full object-cover" />
   <div class="flex flex-1 flex-col p-5">
     <h3 class="font-display text-xl font-medium">
       <a href={`/projetos/${slug}`} class="after:absolute after:inset-0 focus-visible:outline-none">{title}</a>

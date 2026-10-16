@@ -4,13 +4,19 @@ import { hasPage, sortFeatured } from "../lib/projects";
 import ProjectCard from "./ProjectCard.astro";
 import MysteryCard from "./MysteryCard.astro";
 
+interface Props {
+  /** Primeira capa sem lazy-load (página em que a grade está na primeira tela). */
+  eagerFirst?: boolean;
+}
+const { eagerFirst = false } = Astro.props;
+
 const all = sortFeatured(await getCollection("projetos"));
 ---
 <ul class="grid gap-6 sm:grid-cols-2">
-  {all.map((p) => (
+  {all.map((p, i) => (
     <li class="reveal flex">
       {hasPage(p) && p.data.cover ? (
-        <ProjectCard slug={p.id} title={p.data.title} summary={p.data.summary} tags={p.data.tags} cover={p.data.cover} />
+        <ProjectCard slug={p.id} title={p.data.title} summary={p.data.summary} tags={p.data.tags} cover={p.data.cover} eager={eagerFirst && i === 0} />
       ) : (
         <MysteryCard title={p.data.title} summary={p.data.summary} note={p.data.context ?? ""} />
       )}
