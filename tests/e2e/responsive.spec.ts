@@ -46,3 +46,11 @@ test.describe("conteúdo longo @fixtures", () => {
     });
   }
 });
+
+test.describe("projeto sem banner @fixtures", () => {
+  test("card usa a imagem de capa quando não há banner", async ({ page }) => {
+    await page.goto("/projetos");
+    const card = page.locator("[data-project-card]", { hasText: "Plataforma de Observabilidade Distribuída" });
+    await expect(card.locator("img")).toHaveCount(1);
+  });
+});

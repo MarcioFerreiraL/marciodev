@@ -10,7 +10,7 @@
 - Linha de apresentação: "Técnico de Informática e estudante de Engenharia de Software (5º período) na UPE · Surubim, PE".
 - Áreas de interesse: Backend · DevOps · Infraestrutura.
 - Tom: primeira pessoa, direto e técnico ("Construí a API em Spring Boot…").
-- Foto: recortada (cabeça e ombros), fundo removido localmente e trocado por cor lisa do tema; aprovada pelo Márcio antes de publicar.
+- Foto: recorte de cabeça e ombros, redonda, com o fundo original (decisão do Márcio após ver a versão sem fundo).
 
 ## Visual
 - Paleta harmônica (complementar + análogo), dentro de cada tema:
@@ -37,9 +37,9 @@
 
 ## Projetos
 - Destaques, nesta ordem: **Clinics**, **Sistema Barbearia**, **Assistência Técnica**, **UrbanSense**; depois o card **Observatório UPE**.
-- Card: imagem, nome, uma frase, 3–4 tags, "Ver detalhes →".
+- Card: banner ilustrado 2D em SVG (cores da paleta, acompanha o tema), nome, uma frase, até 4 tags, "Ver detalhes →". Sem banner, o card usa a capa. Prints ficam só na galeria do estudo de caso.
 - Case study: contexto (disciplina/equipe), problema, solução, arquitetura (diagrama), infra e deploy, minha contribuição, desafios e aprendizados, galeria de prints, links (repo/demo), créditos.
-- Clinics: demo `https://clinics.marciodev.com` (no ar); equipe Márcio Ferreira Lima e Lucas Nascimento Barros.
+- Clinics: demo `https://clinics.marciodev.com` (no ar); equipe Márcio Ferreira Lima e Lucas Nascimento Barros; até agora Márcio fez tudo (app Flutter, API, infra); as telas da área das clínicas ficam com o Lucas. Tags: Spring Boot, Flutter, Docker, CI/CD.
 - UrbanSense: projeto de equipe para os óculos Meta; colegas citados só pelo nome: Carlos Henrique e Gabriel Lopes; contribuição do Márcio: captura de frame via PixelCopy, visualizador em tela cheia, mapa de ocorrências, integração com a API YOLO na VPS, releases de APK.
 - Observatório UPE: card "em construção", sem link e sem stack. Texto: "Centralizando dados dos departamentos da Universidade de Pernambuco." / "Projeto da PROPEGI · mais detalhes em breve". Visual bloqueado (borda tracejada, cadeado).
 - Outros projetos: repositórios públicos de MarcioFerreiraL via API do GitHub a cada build, ocultando: python, php, javascript, html-css, programacao-I, programacao-II, programacao-III, perfil-web, projeto-vue-js, diario_bot, MarcioFerreiraL, e os repos já em destaque.
