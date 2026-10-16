@@ -1,0 +1,8 @@
+---
+import { site, t } from "../i18n/pt";
+---
+<section id="contato" aria-labelledby="contato-titulo" class="scroll-mt-8 py-12">
+  <h2 id="contato-titulo" class="font-display text-2xl font-medium">{t.contact.title}</h2>
+  <p class="mt-4 max-w-xl leading-relaxed text-muted">{t.contact.text}</p>
+  <a href={`mailto:${site.email}`} class="mt-6 inline-block font-mono text-lg text-purple underline-offset-4 hover:underline">{site.email}</a>
+</section>

@@ -1,0 +1,14 @@
+---
+import { site, t } from "../i18n/pt";
+---
+<section id="sobre" aria-labelledby="sobre-titulo" class="scroll-mt-8 py-12">
+  <h2 id="sobre-titulo" class="font-display text-2xl font-medium">{t.about.title}</h2>
+  <div class="mt-6 max-w-2xl space-y-4 leading-relaxed text-muted">
+    {t.about.paragraphs.map((p) => <p>{p}</p>)}
+  </div>
+  <p class="mt-6 max-w-2xl text-sm leading-relaxed">
+    <span class="font-mono text-brown">{t.about.publicationLabel}:</span>
+    <span class="text-muted"> {t.about.publication} </span>
+    <a href={site.doi} class="text-blue underline-offset-4 hover:underline">DOI 10.55034/smrv6n2-005</a>
+  </p>
+</section>

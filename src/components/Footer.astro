@@ -1,0 +1,14 @@
+---
+import { site, t } from "../i18n/pt";
+const year = new Date().getFullYear();
+---
+<footer class="mx-auto mt-24 max-w-5xl border-t border-border px-4 py-8 text-sm text-muted sm:px-6">
+  <div class="flex flex-wrap items-center justify-between gap-4">
+    <p>© {year} {site.name}. {t.footer}</p>
+    <ul class="flex gap-4">
+      <li><a class="text-blue underline-offset-4 hover:underline" href={site.github}>GitHub</a></li>
+      <li><a class="text-blue underline-offset-4 hover:underline" href={site.linkedin}>LinkedIn</a></li>
+      <li><a class="text-blue underline-offset-4 hover:underline" href={`mailto:${site.email}`}>E-mail</a></li>
+    </ul>
+  </div>
+</footer>

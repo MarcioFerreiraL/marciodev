@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import { t } from "../i18n/pt";
+
+interface Props {
+  slug: string;
+  title: string;
+  summary: string;
+  tags: string[];
+  cover: ImageMetadata;
+}
+const { slug, title, summary, tags, cover } = Astro.props;
+---
+<article data-project-card class="card w-full group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-purple">
+  <Image src={cover} alt="" width={800} height={420} class="aspect-[40/21] w-full object-cover" />
+  <div class="flex flex-1 flex-col p-5">
+    <h3 class="font-display text-xl font-medium">
+      <a href={`/projetos/${slug}`} class="after:absolute after:inset-0 focus-visible:outline-none">{title}</a>
+    </h3>
+    <p class="mt-2 text-sm leading-relaxed text-muted">{summary}</p>
+    <ul class="mt-4 flex flex-wrap gap-2 font-mono text-xs" aria-label="Tecnologias">
+      {tags.map((tag) => <li class="rounded-md bg-tag px-2 py-0.5 text-brown">{tag}</li>)}
+    </ul>
+    <p class="mt-auto pt-5 font-mono text-sm text-purple" aria-hidden="true">{t.projects.details} →</p>
+  </div>
+</article>
+<style>
+  .card:has(a:focus-visible) { outline: 2px solid var(--c-blue); outline-offset: 3px; }
+</style>
