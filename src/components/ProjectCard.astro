@@ -1,20 +1,19 @@
 ---
-import { Image } from "astro:assets";
-import type { ImageMetadata } from "astro";
 import { t } from "../i18n/pt";
+import { banners } from "./banners";
 
 interface Props {
   slug: string;
   title: string;
   summary: string;
   tags: string[];
-  cover: ImageMetadata;
 }
-const { slug, title, summary, tags, cover } = Astro.props;
+const { slug, title, summary, tags } = Astro.props;
+const Banner = banners[slug];
 ---
-<article data-project-card class="card w-full group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-purple">
-  <Image src={cover} alt="" width={800} height={420} class="aspect-[40/21] w-full object-cover" />
-  <div class="flex flex-1 flex-col p-5">
+<article data-project-card class="card group relative flex w-full flex-col rounded-2xl border border-border bg-surface p-2 transition-colors hover:border-purple">
+  {Banner && <div class="overflow-hidden rounded-xl"><Banner /></div>}
+  <div class="flex flex-1 flex-col p-4">
     <h3 class="font-display text-xl font-medium">
       <a href={`/projetos/${slug}`} class="after:absolute after:inset-0 focus-visible:outline-none">{title}</a>
     </h3>
