@@ -21,7 +21,25 @@ npm run test:e2e   # navegador (Playwright), sobe o build com `npm run preview`
 
 ## Como adicionar um projeto
 
-_Em construção._
+1. Crie `src/content/projetos/<slug>.md` (o nome do arquivo vira a URL `/projetos/<slug>`).
+2. Coloque a capa em `src/assets/projetos/<slug>/cover.webp` (1200x630).
+3. Preencha o frontmatter (schema em `src/lib/projects.ts`) e escreva o corpo com as seções `## Contexto`, `## Problema`, `## Solução`, `## Arquitetura`, `## Infra e deploy`, `## Minha contribuição` e `## Desafios e aprendizados`.
+4. Rode `npm test && npm run build` e faça o push: o deploy publica sozinho.
+
+Frontmatter mínimo de um destaque:
+
+```yaml
+---
+title: "Nome do projeto"
+summary: "Uma frase de até 140 caracteres."
+tags: ["Spring Boot", "Docker"] # 1 a 4
+order: 5
+status: "destaque"               # ou "em-construcao" (card sem página, capa opcional)
+cover: "../../assets/projetos/<slug>/cover.webp"
+---
+```
+
+Campos opcionais: `context`, `repo`, `demo`, `team` e `gallery` (lista de `{ src, alt }`).
 
 ## Deploy
 
