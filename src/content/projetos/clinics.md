@@ -22,7 +22,7 @@ gallery:
 
 ## Contexto
 
-Projeto em dupla da disciplina de Programação para Dispositivos Móveis da UPE. O sistema tem dois repositórios: o back-end em Spring Boot (`clinics-backend`) e o aplicativo em Flutter (`clinics-mobile`), que roda no Android e como PWA instalável no iPhone.
+Projeto em dupla da disciplina de Programação para Dispositivos Móveis da UPE. Até agora desenvolvi o sistema sozinho; as telas da área das clínicas ficam com o meu colega, na próxima etapa. O sistema tem dois repositórios: o back-end em Spring Boot (`clinics-backend`) e o aplicativo em Flutter (`clinics-mobile`), que roda no Android e como PWA instalável no iPhone.
 
 ## Problema
 
@@ -50,6 +50,7 @@ O Clinics reúne os preços dos exames e consultas, compara as clínicas lado a 
 
 ## Minha contribuição
 
+- Desenvolvi o aplicativo em Flutter (Android e PWA) a partir do protótipo, com busca, comparação de preços, perfil e contato pelo WhatsApp.
 - Construí a API em Spring Boot com a arquitetura hexagonal, as migrações e os testes de integração com Testcontainers.
 - Montei a imagem Docker, os arquivos do Compose de desenvolvimento e produção e o pipeline de CI/CD no GitHub Actions.
 - Fiz o deploy na VPS, configurei o Cloudflare Tunnel e o firewall só com SSH, e escrevi o smoke test pós-deploy.
