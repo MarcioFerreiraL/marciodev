@@ -16,8 +16,10 @@ interface Props {
   chrome?: boolean;
   /** Reserva espaço no fim da página para um botão fixo no celular. */
   fixedBottomCta?: boolean;
+  /** Páginas que não devem ir para buscadores (404): sem canonical e com robots noindex. */
+  noindex?: boolean;
 }
-const { title, description, ogImage, type = "website", chrome = true, fixedBottomCta = false } = Astro.props;
+const { title, description, ogImage, type = "website", chrome = true, fixedBottomCta = false, noindex = false } = Astro.props;
 // Com build.format "file" o pathname do build termina em .html; a URL pública não tem extensão.
 const path = Astro.url.pathname.replace(/(\/index)?\.html$/, "") || "/";
 const canonical = new URL(path, site.url).href;
@@ -39,14 +41,14 @@ const person = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta property="og:type" content={type} />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
+    {!noindex && <meta property="og:url" content={canonical} />}
     {og && <meta property="og:image" content={og} />}
     <meta name="twitter:card" content={og ? "summary_large_image" : "summary"} />
     <script type="application/ld+json" set:html={JSON.stringify(person)} />
