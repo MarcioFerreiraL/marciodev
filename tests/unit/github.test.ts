@@ -33,6 +33,11 @@ describe("selectRepos", () => {
     expect(def.map((r) => r.name)).toEqual(["mantido"]);
   });
 
+  test("oculta o repositório do próprio site", () => {
+    const repos = selectRepos([{ name: "marciodev", fork: false, html_url: "u", pushed_at: "2026-10-17T00:00:00Z" }]);
+    expect(repos).toEqual([]);
+  });
+
   test("oculta forks", () => {
     const out = selectRepos([raw("meu"), raw("garfo", { fork: true })]);
     expect(out.map((r) => r.name)).toEqual(["meu"]);
