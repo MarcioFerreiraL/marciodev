@@ -12,7 +12,12 @@ const links = [
   { href: whatsappLink(site.whatsapp, l.message), label: l.whatsapp, icon: "whatsapp" as const, primary: true },
   { href: "/servicos", label: l.servicos, icon: "wrench" as const },
   { href: "/", label: l.portfolio, icon: "globe" as const },
-  ...(site.instagram ? [{ href: site.instagram, label: l.instagram, icon: "globe" as const }] : []),
+];
+const redes = [
+  { href: site.linkedin, label: "LinkedIn", icon: "linkedin" as const },
+  { href: site.github, label: "GitHub", icon: "github" as const },
+  ...(site.instagram ? [{ href: site.instagram, label: l.instagram, icon: "instagram" as const }] : []),
+  { href: `mailto:${site.email}`, label: "E-mail", icon: "mail" as const },
 ];
 ---
 <Base title={l.title} description={l.description} chrome={false}>
@@ -44,6 +49,20 @@ const links = [
           >
             <ServiceIcon name={link.icon} class="size-5" />
             {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <ul data-social class="mt-8 flex items-center justify-center gap-3" aria-label="Redes sociais">
+      {redes.map((rede) => (
+        <li>
+          <a
+            href={rede.href}
+            aria-label={rede.label}
+            class="inline-flex size-12 items-center justify-center rounded-full border border-border bg-surface text-muted hover:border-purple hover:text-purple"
+          >
+            <ServiceIcon name={rede.icon} class="size-5" />
           </a>
         </li>
       ))}

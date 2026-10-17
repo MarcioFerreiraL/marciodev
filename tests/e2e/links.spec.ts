@@ -24,6 +24,14 @@ test.describe("/links", () => {
     await expect(page.locator('a[href="null"], a[href=""]')).toHaveCount(0);
   });
 
+  test("redes sociais com nome acessível", async ({ page }) => {
+    const redes = page.locator("[data-social]");
+    await expect(redes.locator(`a[href="${site.linkedin}"]`)).toHaveAttribute("aria-label", "LinkedIn");
+    await expect(redes.locator(`a[href="${site.github}"]`)).toHaveAttribute("aria-label", "GitHub");
+    await expect(redes.locator(`a[href="mailto:${site.email}"]`)).toHaveAttribute("aria-label", "E-mail");
+    if (site.instagram === null) await expect(redes.locator('a[aria-label="Instagram"]')).toHaveCount(0);
+  });
+
   test("sem cabeçalho e rodapé do site", async ({ page }) => {
     await expect(page.locator("header nav")).toHaveCount(0);
     await expect(page.locator("footer")).toHaveCount(0);
