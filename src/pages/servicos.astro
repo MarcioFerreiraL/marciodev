@@ -1,0 +1,83 @@
+---
+import Base from "../layouts/Base.astro";
+import ServiceIcon from "../components/ServiceIcon.astro";
+import { site, t } from "../i18n/pt";
+import { whatsappLink } from "../lib/whatsapp";
+
+type Solution = {
+  icon: "globe" | "menu" | "calendar" | "box" | "wrench" | "bolt" | "chart" | "server";
+  title: string;
+  text: string;
+  example?: { label: string; href: string };
+};
+
+const s = t.servicos;
+const solutions: readonly Solution[] = s.solutions;
+const wa = whatsappLink(site.whatsapp, s.message);
+---
+<Base title={s.title} description={s.description} fixedBottomCta>
+  <div>
+    <section class="pt-10 pb-12 md:pt-16">
+      <p class="font-mono text-sm text-brown">{s.prompt}</p>
+      <h1 class="mt-3 max-w-3xl font-display text-3xl font-medium tracking-tight sm:text-5xl">{s.hero}</h1>
+      <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{s.heroText}</p>
+      <a href={wa} class="mt-8 inline-flex items-center gap-2 rounded-lg bg-purple px-5 py-3 font-medium text-on-purple hover:opacity-90">
+        <ServiceIcon name="whatsapp" class="size-5" />
+        {s.cta}
+      </a>
+    </section>
+
+    <section aria-labelledby="solucoes-titulo" class="py-12">
+      <h2 id="solucoes-titulo" class="font-display text-2xl font-medium">{s.solutionsTitle}</h2>
+      <ul class="mt-8 grid gap-4 sm:grid-cols-2">
+        {solutions.map((sol) => (
+          <li data-solution class="reveal flex flex-col rounded-2xl border border-border bg-surface p-5">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex size-10 items-center justify-center rounded-xl bg-tag text-purple">
+                <ServiceIcon name={sol.icon} />
+              </span>
+              <h3 class="font-display text-lg font-medium">{sol.title}</h3>
+            </div>
+            <p class="mt-3 text-sm leading-relaxed text-muted">{sol.text}</p>
+            {sol.example && (
+              <a href={sol.example.href} class="mt-auto pt-4 font-mono text-sm text-blue underline-offset-4 hover:underline">
+                {s.exampleLabel}: {sol.example.label} →
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section aria-labelledby="passos-titulo" class="py-12">
+      <h2 id="passos-titulo" class="font-display text-2xl font-medium">{s.stepsTitle}</h2>
+      <ol class="mt-8 grid gap-4 md:grid-cols-3">
+        {s.steps.map((step, i) => (
+          <li data-step class="rounded-2xl border border-border p-5">
+            <span class="font-mono text-sm text-brown">0{i + 1}</span>
+            <h3 class="mt-2 font-display text-lg font-medium">{step.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted">{step.text}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="py-12">
+      <p class="max-w-2xl text-lg leading-relaxed">{s.closing}</p>
+      <a href={wa} class="mt-6 inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 font-medium hover:bg-surface">
+        <ServiceIcon name="whatsapp" class="size-5 text-purple" />
+        {s.ctaShort}
+      </a>
+    </section>
+  </div>
+
+  <!-- Botão fixo só no celular, onde a pessoa rola a página inteira. -->
+  <a
+    data-whatsapp-fixo
+    href={wa}
+    class="fixed inset-x-4 bottom-4 z-40 flex items-center justify-center gap-2 rounded-xl bg-purple px-5 py-3.5 font-medium text-on-purple shadow-lg sm:hidden"
+  >
+    <ServiceIcon name="whatsapp" class="size-5" />
+    {s.fixedCta}
+  </a>
+</Base>

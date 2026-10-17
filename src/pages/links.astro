@@ -1,0 +1,54 @@
+---
+// Página de links para a bio do Instagram: fora do menu, sem cabeçalho e rodapé.
+import { Picture } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import ServiceIcon from "../components/ServiceIcon.astro";
+import foto from "../assets/foto.png";
+import { site, t } from "../i18n/pt";
+import { whatsappLink } from "../lib/whatsapp";
+
+const l = t.links;
+const links = [
+  { href: whatsappLink(site.whatsapp, l.message), label: l.whatsapp, icon: "whatsapp" as const, primary: true },
+  { href: "/servicos", label: l.servicos, icon: "wrench" as const },
+  { href: "/", label: l.portfolio, icon: "globe" as const },
+  ...(site.instagram ? [{ href: site.instagram, label: l.instagram, icon: "globe" as const }] : []),
+];
+---
+<Base title={l.title} description={l.description} chrome={false}>
+  <section class="mx-auto flex min-h-dvh max-w-md flex-col items-center justify-center py-12 text-center">
+    <Picture
+      src={foto}
+      alt={`Foto de ${site.name}`}
+      widths={[192, 288]}
+      sizes="112px"
+      formats={["avif", "webp"]}
+      fallbackFormat="webp"
+      loading="eager"
+      fetchpriority="high"
+      class="size-28 rounded-full border-2 border-border object-cover"
+    />
+    <h1 class="mt-5 font-display text-2xl font-medium">{site.name}</h1>
+    <p class="mt-2 text-muted">{l.tagline}</p>
+    <p class="mt-1 font-mono text-xs text-brown">Surubim, PE</p>
+
+    <ul class="mt-8 flex w-full flex-col gap-3">
+      {links.map((link) => (
+        <li>
+          <a
+            data-link
+            href={link.href}
+            class={`flex w-full items-center justify-center gap-2 rounded-xl px-5 py-4 font-medium ${
+              link.primary ? "bg-purple text-on-purple hover:opacity-90" : "border border-border bg-surface hover:border-purple"
+            }`}
+          >
+            <ServiceIcon name={link.icon} class="size-5" />
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <p class="mt-10 font-mono text-xs text-muted">marciodev.com</p>
+  </section>
+</Base>
