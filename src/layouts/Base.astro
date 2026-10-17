@@ -12,8 +12,12 @@ interface Props {
   description: string;
   ogImage?: ImageMetadata;
   type?: "website" | "article";
+  /** false esconde cabeçalho e rodapé (página /links). */
+  chrome?: boolean;
+  /** Reserva espaço no fim da página para um botão fixo no celular. */
+  fixedBottomCta?: boolean;
 }
-const { title, description, ogImage, type = "website" } = Astro.props;
+const { title, description, ogImage, type = "website", chrome = true, fixedBottomCta = false } = Astro.props;
 // Com build.format "file" o pathname do build termina em .html; a URL pública não tem extensão.
 const path = Astro.url.pathname.replace(/(\/index)?\.html$/, "") || "/";
 const canonical = new URL(path, site.url).href;
@@ -49,10 +53,11 @@ const person = {
     <ThemeScript />
   </head>
   <body class="min-h-dvh bg-bg font-sans text-text antialiased">
-    <Header />
+    {chrome && <Header />}
     <main id="conteudo" class="mx-auto max-w-5xl px-4 sm:px-6">
       <slot />
     </main>
-    <Footer />
+    {chrome && <Footer />}
+    {fixedBottomCta && <div aria-hidden="true" class="h-24 sm:hidden"></div>}
   </body>
 </html>
