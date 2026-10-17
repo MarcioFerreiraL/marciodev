@@ -1,9 +1,13 @@
 ---
 import Base from "../layouts/Base.astro";
 ---
-<Base title="Página não encontrada · Márcio Ferreira Lima" description="Esta página não existe.">
+<Base title="Página não encontrada · Márcio Ferreira Lima" description="Esta página não existe." noindex>
   <section class="py-24">
-    <p class="font-mono text-sm text-brown">~/marciodev $ cd {Astro.url.pathname}</p>
+    <!-- O HTML é gerado uma vez no build; o caminho digitado é preenchido no navegador. -->
+    <p class="font-mono text-sm text-brown">~/marciodev $ cd <span data-caminho>esta-página</span></p>
+    <script is:inline>
+      document.querySelector("[data-caminho]").textContent = location.pathname;
+    </script>
     <p class="mt-1 font-mono text-sm text-muted">bash: cd: arquivo ou diretório inexistente</p>
     <h1 class="mt-6 font-display text-4xl font-medium">Página não encontrada</h1>
     <a href="/" class="mt-8 inline-block rounded-lg bg-purple px-5 py-2.5 text-sm font-medium text-on-purple">Voltar ao início</a>
