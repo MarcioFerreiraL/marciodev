@@ -11,6 +11,7 @@ export type Repo = {
 };
 
 export const HIDDEN: readonly string[] = [
+  "marciodev", // o próprio site não aparece como projeto
   "python",
   "php",
   "javascript",
