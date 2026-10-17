@@ -36,8 +36,8 @@ O Clinics reúne os preços dos exames e consultas, compara as clínicas lado a 
 
 ## Arquitetura
 
-- Arquitetura hexagonal (portas e adaptadores), organizada por funcionalidade em três módulos: `identity`, `catalog` e `engagement`.
-- O domínio não depende de Spring, JPA nem HTTP; um teste com ArchUnit quebra o build se essa regra for violada.
+- Arquitetura em camadas: **controller → service → repository**, com os pacotes `model` (objetos de negócio e suas validações) e `dto` (formatos da API) compartilhados.
+- Um teste com ArchUnit quebra o build se a direção das camadas for violada, por exemplo um controller acessando um repository direto.
 - Escrita com Spring Data JPA e consultas de leitura com `JdbcClient` e SQL nativo; migrações versionadas com Flyway.
 - Autenticação com Spring Security, JWT (OAuth2 Resource Server) e BCrypt; erros no formato RFC 9457 e contrato publicado com springdoc-openapi.
 - Testes com JUnit 5, MockMvc e Testcontainers, usando PostgreSQL real.
@@ -53,7 +53,7 @@ O Clinics reúne os preços dos exames e consultas, compara as clínicas lado a 
 ## Minha contribuição
 
 - Desenvolvi o aplicativo em Flutter (Android e PWA) a partir do protótipo, com busca, comparação de preços, perfil e contato pelo WhatsApp.
-- Construí a API em Spring Boot com a arquitetura hexagonal, as migrações e os testes de integração com Testcontainers.
+- Construí a API em Spring Boot com a arquitetura em camadas, as migrações e os testes de integração com Testcontainers.
 - Montei a imagem Docker, os arquivos do Compose de desenvolvimento e produção e o pipeline de CI/CD no GitHub Actions.
 - Fiz o deploy na VPS, configurei o Cloudflare Tunnel e o firewall só com SSH, e escrevi o smoke test pós-deploy.
 - Escrevi e rodei os testes de carga com k6 e documentei os resultados.
@@ -61,3 +61,5 @@ O Clinics reúne os preços dos exames e consultas, compara as clínicas lado a 
 ## Desafios e aprendizados
 
 O Docker ignora o `ufw` ao publicar portas, então publicar `8080:8080` deixaria a API exposta mesmo com o firewall ativo; ligar a porta em `127.0.0.1` e usar o túnel resolveu. A VPS tem pouca memória para compilar, por isso a imagem é construída fora dela e enviada pronta. Também precisei diagnosticar uma queda do domínio causada por um token do túnel rejeitado, com a API e a VPS funcionando normalmente. Aprendi a tratar testes, deploy e observação de desempenho como parte do projeto, não como etapa final.
+
+O projeto começou com arquitetura hexagonal (portas e adaptadores). Em outubro de 2026 migrei para camadas: com poucas regras de negócio, as interfaces de porta traziam mais cerimônia do que benefício. A migração removeu cerca de 340 linhas e não mudou o contrato da API, o que comprovei com a mesma suíte de testes, o OpenAPI gerado idêntico e uma comparação das respostas reais da versão antiga e da nova sobre o mesmo banco.
