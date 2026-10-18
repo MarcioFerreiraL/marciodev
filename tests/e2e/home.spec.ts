@@ -58,7 +58,7 @@ test.describe("home", () => {
 
   test("publicação e contatos", async ({ page }) => {
     await expect(page.locator('a[href="https://doi.org/10.55034/smrv6n2-005"]')).toHaveCount(1);
-    await expect(page.locator('a[href="mailto:contactmarcioflima@gmail.com"]').first()).toBeVisible();
+    await expect(page.locator('a[href="mailto:contato@marciodev.com"]').first()).toBeVisible();
     const html = await page.content();
     for (const banned of ["upe.br", "99906", "full-stack", "Full Stack"]) expect(html).not.toContain(banned);
   });
