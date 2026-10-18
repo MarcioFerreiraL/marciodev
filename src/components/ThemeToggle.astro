@@ -1,8 +1,7 @@
 <button
   type="button"
   data-theme-toggle
-  aria-label="Alternar tema"
-  aria-pressed="false"
+  aria-label="Usar tema claro"
   class="inline-flex size-10 items-center justify-center rounded-lg border border-border text-text hover:bg-surface"
 >
   <svg aria-hidden="true" viewBox="0 0 24 24" class="size-5 fill-none stroke-current" stroke-width="1.8">
@@ -13,7 +12,8 @@
 <script is:inline>
   (() => {
     const btn = document.currentScript.previousElementSibling;
-    const sync = () => btn.setAttribute("aria-pressed", String(document.documentElement.dataset.theme === "light"));
+    // O rótulo diz o que o clique faz, não o estado atual.
+    const sync = () => btn.setAttribute("aria-label", document.documentElement.dataset.theme === "light" ? "Usar tema escuro" : "Usar tema claro");
     sync();
     btn.addEventListener("click", () => {
       const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";

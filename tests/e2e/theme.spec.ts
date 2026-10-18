@@ -13,7 +13,7 @@ test.describe("tema", () => {
   test("toggle persiste após reload", async ({ browser }) => {
     const page = await browser.newPage({ colorScheme: "dark" });
     await page.goto("/");
-    await page.getByRole("button", { name: "Alternar tema" }).click();
+    await page.locator("[data-theme-toggle]").click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
     await page.reload();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
@@ -31,9 +31,20 @@ test.describe("tema", () => {
     });
     await page.goto("/");
     await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
-    await page.getByRole("button", { name: "Alternar tema" }).click();
+    await page.locator("[data-theme-toggle]").click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
     expect(errors).toEqual([]);
+    await page.close();
+  });
+
+  test("o botão diz o que vai fazer, nos dois temas", async ({ browser }) => {
+    const page = await browser.newPage({ colorScheme: "dark" });
+    await page.goto("/");
+    const botao = page.locator("[data-theme-toggle]");
+    await expect(botao).toHaveAttribute("aria-label", "Usar tema claro");
+    await expect(botao).not.toHaveAttribute("aria-pressed", /.*/);
+    await botao.click();
+    await expect(botao).toHaveAttribute("aria-label", "Usar tema escuro");
     await page.close();
   });
 

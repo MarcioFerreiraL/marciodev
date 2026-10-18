@@ -5,14 +5,16 @@ interface Props {
   id: string;
 }
 const { id } = Astro.props;
+// Sufixo por instância: o mesmo banner duas vezes na página não repete ids do SVG.
+const uid = `${id}-${crypto.randomUUID().slice(0, 8)}`;
 ---
 <svg viewBox="0 0 800 420" aria-hidden="true" focusable="false" class="block h-auto w-full" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <pattern id={`dots-${id}`} width="24" height="24" patternUnits="userSpaceOnUse">
+    <pattern id={`dots-${uid}`} width="24" height="24" patternUnits="userSpaceOnUse">
       <circle cx="2" cy="2" r="1.6" class="fill-border" />
     </pattern>
   </defs>
   <rect width="800" height="420" class="fill-tag" />
-  <rect width="800" height="420" fill={`url(#dots-${id})`} />
+  <rect width="800" height="420" fill={`url(#dots-${uid})`} />
   <slot />
 </svg>

@@ -1,7 +1,9 @@
 name: CI
 
 on:
+  # push só na main: branches de PR já rodam pelo pull_request (evita CI duplicado).
   push:
+    branches: [main]
   pull_request:
 
 permissions:

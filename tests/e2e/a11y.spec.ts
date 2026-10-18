@@ -38,7 +38,7 @@ for (const theme of THEMES) {
       await page.goto("/");
       await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
 
-      const toggle = page.locator('button[aria-label="Alternar tema"]');
+      const toggle = page.locator("[data-theme-toggle]");
       // Primeiro link do topo: currículo quando pronto, senão GitHub.
       const cv = page.locator("main section").first().locator("a").first();
       const cardLink = page.locator('[data-project-card] a[href^="/projetos/"]').first();

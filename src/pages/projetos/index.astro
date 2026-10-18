@@ -4,16 +4,17 @@ import Base from "../../layouts/Base.astro";
 import FeaturedGrid from "../../components/FeaturedGrid.astro";
 import RepoList from "../../components/RepoList.astro";
 import { getOtherRepos } from "../../lib/github";
+import { hasPage } from "../../lib/projects";
 import { t } from "../../i18n/pt";
 
 const repos = await getOtherRepos();
-const count = (await getCollection("projetos")).length;
+const count = (await getCollection("projetos")).filter(hasPage).length;
 ---
 <Base title="Projetos · Márcio Ferreira Lima" description="Projetos de backend, DevOps e infraestrutura de Márcio Ferreira Lima.">
   <header class="pt-10 pb-8">
     <p class="font-mono text-sm text-brown">~/marciodev $ ls projetos</p>
     <h1 class="mt-2 font-display text-4xl font-medium tracking-tight">Projetos</h1>
-    <p class="mt-4 max-w-2xl text-lg text-muted">Os {count - 1} primeiros têm estudo de caso completo. Abaixo, o restante do que está público no meu GitHub.</p>
+    <p class="mt-4 max-w-2xl text-lg text-muted">Os <span data-case-count>{count}</span> primeiros têm estudo de caso completo. Abaixo, o restante do que está público no meu GitHub.</p>
   </header>
   <section aria-labelledby="destaques-titulo">
     <h2 id="destaques-titulo" class="sr-only">{t.projects.title}</h2>
