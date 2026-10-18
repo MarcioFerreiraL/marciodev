@@ -1,13 +1,15 @@
 ---
 import Frame from "./Frame.astro";
+
+const clip = `pole-clip-${crypto.randomUUID().slice(0, 8)}`;
 ---
 <Frame id="barbearia">
   <!-- poste de barbearia -->
   <g>
     <rect x="96" y="40" width="64" height="18" rx="9" class="fill-brown" />
-    <clipPath id="pole-clip"><rect x="104" y="58" width="48" height="230" rx="8" /></clipPath>
+    <clipPath id={clip}><rect x="104" y="58" width="48" height="230" rx="8" /></clipPath>
     <rect x="104" y="58" width="48" height="230" rx="8" class="fill-surface" />
-    <g clip-path="url(#pole-clip)">
+    <g clip-path={`url(#${clip})`}>
       {[0, 1, 2, 3, 4, 5, 6].map((i) => (
         <path d={`M90 ${40 + i * 44}l80 -40v22l-80 40z`} class={i % 2 ? "fill-blue" : "fill-purple"} />
       ))}
