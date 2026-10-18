@@ -1,7 +1,7 @@
 export const site = {
   name: "Márcio Ferreira Lima",
   url: "https://marciodev.com",
-  email: "contactmarcioflima@gmail.com",
+  email: "contato@marciodev.com",
   github: "https://github.com/MarcioFerreiraL",
   linkedin: "https://www.linkedin.com/in/marcioflima/",
   doi: "https://doi.org/10.55034/smrv6n2-005",

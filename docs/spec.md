@@ -45,7 +45,7 @@
 - Outros projetos: repositórios públicos de MarcioFerreiraL via API do GitHub a cada build, ocultando: python, php, javascript, html-css, programacao-I, programacao-II, programacao-III, perfil-web, projeto-vue-js, diario_bot, MarcioFerreiraL, e os repos já em destaque.
 
 ## Contato
-- Site: `contactmarcioflima@gmail.com`, GitHub `MarcioFerreiraL`, LinkedIn `marcioflima`.
+- Site: `contato@marciodev.com`, GitHub `MarcioFerreiraL`, LinkedIn `marcioflima`.
 - WhatsApp só em `/servicos`. E-mail da UPE fora do site. Sem Instagram. Sem formulário.
 
 ## Técnica
