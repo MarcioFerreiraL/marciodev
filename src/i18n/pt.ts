@@ -6,8 +6,8 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/marcioflima/",
   doi: "https://doi.org/10.55034/smrv6n2-005",
   whatsapp: "5581999069172",
-  // Instagram profissional ainda não existe; com null o botão fica escondido em /links.
-  instagram: null as string | null,
+  // Com null o ícone some de /links.
+  instagram: "https://www.instagram.com/marciodeveloper_/" as string | null,
   // Ligue quando public/curriculo-pt.pdf e public/curriculo-en.pdf forem os currículos de verdade.
   cvReady: true,
 } as const;

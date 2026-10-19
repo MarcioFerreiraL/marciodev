@@ -46,7 +46,7 @@
 
 ## Contato
 - Site: `contato@marciodev.com`, GitHub `MarcioFerreiraL`, LinkedIn `marcioflima`.
-- WhatsApp só em `/servicos`. E-mail da UPE fora do site. Sem Instagram. Sem formulário.
+- WhatsApp só em `/servicos`. E-mail da UPE fora do site. Instagram profissional (@marciodeveloper_) só nas redes de `/links`. Sem formulário.
 
 ## Técnica
 - Astro + Tailwind, HTML estático; repositório público `MarcioFerreiraL/marciodev`.
