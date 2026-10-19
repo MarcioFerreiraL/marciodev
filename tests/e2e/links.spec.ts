@@ -18,10 +18,13 @@ test.describe("/links", () => {
     expect(hrefs.slice(0, 3)).toEqual([whatsappLink(site.whatsapp, t.links.message), "/servicos", "/"]);
   });
 
-  test("sem Instagram enquanto não houver perfil profissional", async ({ page }) => {
-    test.skip(site.instagram !== null, "Instagram configurado");
-    await expect(page.locator("[data-link]")).toHaveCount(3);
+  test("nenhum link vazio", async ({ page }) => {
     await expect(page.locator('a[href="null"], a[href=""]')).toHaveCount(0);
+  });
+
+  test("Instagram profissional nas redes, abrindo o perfil", async ({ page }) => {
+    const insta = page.locator('[data-social] a[aria-label="Instagram"]');
+    await expect(insta).toHaveAttribute("href", "https://www.instagram.com/marciodeveloper_/");
   });
 
   test("redes sociais com nome acessível", async ({ page }) => {
@@ -29,7 +32,6 @@ test.describe("/links", () => {
     await expect(redes.locator(`a[href="${site.linkedin}"]`)).toHaveAttribute("aria-label", "LinkedIn");
     await expect(redes.locator(`a[href="${site.github}"]`)).toHaveAttribute("aria-label", "GitHub");
     await expect(redes.locator(`a[href="mailto:${site.email}"]`)).toHaveAttribute("aria-label", "E-mail");
-    if (site.instagram === null) await expect(redes.locator('a[aria-label="Instagram"]')).toHaveCount(0);
   });
 
   test("sem cabeçalho e rodapé do site", async ({ page }) => {
