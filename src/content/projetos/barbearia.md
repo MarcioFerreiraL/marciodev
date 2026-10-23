@@ -6,18 +6,18 @@ order: 2
 status: "destaque"
 cover: "../../assets/projetos/barbearia/cover.webp"
 repo: "https://github.com/MarcioFerreiraL/sistema-barbearia"
-demo: "https://sistema-barbearia-black.vercel.app"
+demo: "https://barbearia.marciodev.com"
 context: "Disciplina de Programação Web · UPE"
 gallery:
   - src: "../../assets/projetos/barbearia/desktop.webp"
-    alt: "Página inicial da Barbearia do Zé no computador"
+    alt: "Página inicial da Mandacaru Barbearia no computador"
   - src: "../../assets/projetos/barbearia/mobile.webp"
-    alt: "Página inicial da Barbearia do Zé no celular"
+    alt: "Página inicial da Mandacaru Barbearia no celular"
 ---
 
 ## Contexto
 
-A Barbearia do Zé é um sistema web de gestão e agendamento para uma barbearia. O projeto fica num monorepo com o back-end, o front-end e a documentação técnica (arquitetura, referência da API, esquema do banco e diagramas UML de casos de uso e de classes), partindo de um protótipo de baixa fidelidade no Figma.
+A Mandacaru Barbearia (fictícia, em Surubim) é um sistema web de gestão e agendamento para uma barbearia. O projeto fica num monorepo com o back-end, o front-end e a documentação técnica (arquitetura, referência da API, esquema do banco e diagramas UML de casos de uso e de classes), partindo de um protótipo de baixa fidelidade no Figma.
 
 ## Problema
 
@@ -26,7 +26,7 @@ Reservas feitas por mensagem ou telefone geram sobreposição de horários e fal
 ## Solução
 
 - Vitrine com o catálogo de serviços, preços e duração estimada.
-- Agendamento em etapa única: o cliente escolhe serviço, profissional e horário entre os disponíveis.
+- Agendamento em quatro passos: o cliente escolhe serviço, profissional, dia e horário, vendo só os horários livres.
 - Painel do cliente com histórico e cancelamento; painel do barbeiro e do administrador com a agenda diária e a troca de status dos atendimentos.
 - Três papéis com permissões distintas (`ROLE_ADMIN`, `ROLE_BARBER`, `ROLE_CUSTOMER`).
 
@@ -44,14 +44,16 @@ Reservas feitas por mensagem ou telefone geram sobreposição de horários e fal
 - Toda configuração sensível vem de variáveis de ambiente; os arquivos `.env` não são versionados.
 - O back-end tem `Dockerfile` multi-stage (Maven para compilar, JRE Alpine para rodar) e um Docker Compose com PostgreSQL e healthcheck.
 - Um workflow no GitHub Actions, a cada push na `master`, constrói a imagem, publica no GitHub Container Registry e faz o deploy por SSH na VPS com `docker compose pull` e `up -d`.
-- A API rodava numa VPS Oracle Free Tier atrás de nginx com certificado SSL; o front-end segue publicado na Vercel.
+- A API rodava numa VPS Oracle Free Tier atrás de nginx com certificado SSL.
+- A demo pública é o front-end exportado como site estático na Cloudflare, com um back-end simulado no navegador que segue as mesmas regras da API (horário de funcionamento, conflito de horários, papéis) e guarda os dados só no navegador de quem testa.
+- O front-end tem testes de unidade com Vitest e testes ponta a ponta com Playwright no celular e no computador, incluindo acessibilidade com axe, rodando no GitHub Actions.
 
 ## Minha contribuição
 
 - Construí a API em Spring Boot, com autenticação JWT, controle de acesso por papel e a validação de conflito de horários.
 - Modelei o banco no PostgreSQL e escrevi a documentação técnica e os diagramas UML.
 - Montei a imagem Docker, o Compose e o pipeline de build e deploy com GHCR e GitHub Actions.
-- Publiquei o front-end em Next.js na Vercel.
+- Redesenhei o front-end em Next.js com identidade própria e publiquei a demo na Cloudflare.
 
 ## Desafios e aprendizados
 

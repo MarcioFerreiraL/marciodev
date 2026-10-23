@@ -7,8 +7,8 @@ const mobile = { width: 390, height: 844 };
 const targets = [
   { name: "clinics-landing", url: "https://clinics.marciodev.com/", viewport: desktop, wait: 2000 },
   { name: "clinics-app", url: "https://clinics.marciodev.com/app/", viewport: mobile, wait: 8000 },
-  { name: "barbearia-desktop", url: "https://sistema-barbearia-black.vercel.app/", viewport: desktop, wait: 4000 },
-  { name: "barbearia-mobile", url: "https://sistema-barbearia-black.vercel.app/", viewport: mobile, wait: 4000 },
+  { name: "barbearia-desktop", url: "https://barbearia.marciodev.com/", viewport: desktop, wait: 4000 },
+  { name: "barbearia-mobile", url: "https://barbearia.marciodev.com/", viewport: mobile, wait: 4000 },
 ];
 
 for (const t of targets) {
