@@ -6,21 +6,24 @@ order: 3
 status: "destaque"
 cover: "../../assets/projetos/assistencia-tecnica/cover.webp"
 repo: "https://github.com/MarcioFerreiraL/sistema-assistencia-tecnica"
+demo: "https://assistencia.marciodev.com"
 context: "Disciplina de Programação III (padrões de projeto) · UPE"
 gallery:
+  - src: "../../assets/projetos/assistencia-tecnica/inicio.webp"
+    alt: "Página inicial do Ponto de Solda com a etiqueta da OS e as etapas marcadas em furos"
   - src: "../../assets/projetos/assistencia-tecnica/tecnico.webp"
-    alt: "Área técnica: fila de ordens de serviço disponíveis e reparos em andamento com laudo"
+    alt: "Bancada do técnico: fila do balcão, OS para orçar e roteiro de reparo"
   - src: "../../assets/projetos/assistencia-tecnica/atendente.webp"
-    alt: "Painel de atendimento com cadastro de clientes e últimas solicitações por status"
+    alt: "Balcão: receber aparelho pelo CPF do cliente e lista de ordens filtrada por estado"
   - src: "../../assets/projetos/assistencia-tecnica/cliente.webp"
-    alt: "Área do cliente com a solicitação aberta e opção de cancelar"
+    alt: "Área do cliente com um orçamento esperando aprovação"
   - src: "../../assets/projetos/assistencia-tecnica/login.webp"
-    alt: "Tela de acesso por tipo de usuário e CPF"
+    alt: "Entrada com um clique por perfil na demo, ou por perfil e CPF"
 ---
 
 ## Contexto
 
-Sistema para gerenciar uma assistência técnica de equipamentos eletrônicos, com uma API REST em Spring Boot e uma interface em Vue.js. O foco do projeto foi aplicar padrões de projeto clássicos (GoF) num domínio com regras de fluxo bem definidas.
+Sistema para gerenciar uma assistência técnica de equipamentos eletrônicos, com uma API REST em Spring Boot e uma interface em Vue.js. A demo usa a loja fictícia Ponto de Solda, em Surubim, com identidade própria: a etiqueta de papel amarrada no aparelho, com o número da OS em fita de rotuladora e um furo para cada etapa do conserto. O foco do projeto foi aplicar padrões de projeto clássicos (GoF) num domínio com regras de fluxo bem definidas.
 
 ## Problema
 
@@ -45,7 +48,9 @@ O sistema cobre o ciclo de vida da OS para quatro perfis:
 
 ## Infra e deploy
 
-Este projeto não tem deploy público. Ele roda localmente: a API sobe com `./mvnw spring-boot:run` na porta 8080 e o front-end é gerado com o Vite e servido com `npm run preview`. O banco pode ser PostgreSQL, configurado no `application.properties`, ou H2 em memória.
+- A API roda localmente com `./mvnw spring-boot:run` na porta 8080, com PostgreSQL configurado no `application.properties` ou H2 em memória.
+- A demo pública é o front-end como site estático na Cloudflare (Workers com arquivos estáticos e domínio próprio), com um back-end simulado no navegador que segue as mesmas regras da API: transições de estado da OS, roteiro de reparo por tipo de aparelho, CPF único e idade mínima no cadastro, e o que pode ou não ser excluído. Os dados ficam só no navegador de quem testa.
+- O front-end tem testes de unidade com Vitest para essas regras e testes ponta a ponta com Playwright no celular e no computador, incluindo acessibilidade com axe, rodando no GitHub Actions.
 
 ## Minha contribuição
 
