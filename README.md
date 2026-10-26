@@ -2,7 +2,7 @@
 
 Site pessoal de Márcio Ferreira Lima: portfólio de projetos e currículo.
 
-Feito com [Astro](https://astro.build) e Tailwind CSS, gerado como HTML estático e publicado no Cloudflare Pages.
+Feito com [Astro](https://astro.build) e Tailwind CSS, gerado como HTML estático e publicado na Cloudflare (Workers com arquivos estáticos).
 
 ## Rodar localmente
 
@@ -49,4 +49,12 @@ Campos opcionais: `context`, `repo`, `demo`, `team` e `gallery` (lista de `{ src
 
 ## Deploy
 
-_Em construção._
+O site é um Worker da Cloudflare só com arquivos estáticos (`wrangler.jsonc` aponta para `dist/`). O Workers Builds, ligado a este repositório, roda `npm run build` e `npx wrangler deploy` a cada push na `main`; pushes em outras branches geram só uma versão de prévia. O build lê a variável secreta `GITHUB_TOKEN` para listar os repositórios em "Outros projetos" e, sem ela, usa `src/data/repos-fallback.json`.
+
+Se o build automático falhar, dá para publicar da própria máquina:
+
+```bash
+npm run build && npx wrangler deploy   # pede login na Cloudflare na primeira vez
+```
+
+O CI do GitHub Actions (`.github/workflows/ci.yml`) não publica: ele só roda os testes, o Lighthouse e o build.
