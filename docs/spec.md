@@ -31,14 +31,14 @@
 | `/` | Topo (nome, linha, interesses, foto, "Baixar currículo" PT/EN, GitHub, LinkedIn); Sobre (bio, menção à Márcio Tec, publicação com DOI); destaques; link "ver todos os projetos"; contato |
 | `/projetos` | Destaques + "Outros projetos" puxados do GitHub |
 | `/projetos/<nome>` | Case study |
-| `/servicos` | Fase 2 (plano separado) |
+| `/servicos` | 8 soluções para negócios locais, contato pelo WhatsApp (no ar desde 17/10/2026) |
 | `/curriculo-pt.pdf`, `/curriculo-en.pdf` | Downloads (plano separado gera os PDFs) |
 | 404 | No tema do site |
 
 ## Projetos
 - Destaques, nesta ordem: **Clinics**, **Sistema Barbearia**, **Assistência Técnica**, **UrbanSense**; depois o card **Observatório UPE**.
 - Card: banner ilustrado 2D em SVG (cores da paleta, acompanha o tema), nome, uma frase, até 4 tags, "Ver detalhes →". Sem banner, o card usa a capa. Prints ficam só na galeria do estudo de caso.
-- Case study: contexto (disciplina/equipe), problema, solução, arquitetura (diagrama), infra e deploy, minha contribuição, desafios e aprendizados, galeria de prints, links (repo/demo), créditos.
+- Case study: contexto (disciplina/equipe), problema, solução, arquitetura (em texto; diagramas ficam para depois), infra e deploy, minha contribuição, desafios e aprendizados, galeria de prints, links (repo/demo), créditos.
 - Clinics: demo `https://clinics.marciodev.com` (no ar); equipe Márcio Ferreira Lima e Lucas Nascimento Barros; até agora Márcio fez tudo (app Flutter, API, infra); as telas da área das clínicas ficam com o Lucas. Tags: Spring Boot, Flutter, Docker, CI/CD.
 - UrbanSense: projeto de equipe para os óculos Meta; colegas citados só pelo nome: Carlos Henrique e Gabriel Lopes; contribuição do Márcio: captura de frame via PixelCopy, visualizador em tela cheia, mapa de ocorrências, integração com a API YOLO na VPS, releases de APK.
 - Observatório UPE: card "em construção", sem link e sem stack. Texto: "Centralizando dados dos departamentos da Universidade de Pernambuco." / "Projeto da PROPEGI · mais detalhes em breve". Visual bloqueado (borda tracejada, cadeado).
@@ -50,7 +50,7 @@
 
 ## Técnica
 - Astro + Tailwind, HTML estático; repositório público `MarcioFerreiraL/marciodev`.
-- Cloudflare Pages, domínio `marciodev.com` (www redireciona), Cloudflare Web Analytics.
+- Cloudflare Workers com arquivos estáticos (Workers Builds publica a cada push na `main`), domínio `marciodev.com` (www redireciona), Cloudflare Web Analytics.
 - Adicionar projeto = um arquivo Markdown em `src/content/projetos/` + imagens; push publica.
 - Critérios de pronto no CI: Lighthouse ≥ 95 (performance e acessibilidade, celular), WCAG AA, teclado, `prefers-reduced-motion`, layout 360–1440 px sem rolagem horizontal, SEO (título/descrição por página, Open Graph por projeto, sitemap, JSON-LD Person).
 
