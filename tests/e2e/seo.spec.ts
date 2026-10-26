@@ -24,6 +24,17 @@ for (const slug of ["clinics", "barbearia", "assistencia-tecnica", "urbansense"]
   });
 }
 
+for (const route of ["/", "/projetos", "/servicos", "/links"]) {
+  test(`${route} tem imagem de prévia para redes sociais`, async ({ page, request }) => {
+    await page.goto(route);
+    const src = await page.locator('meta[property="og:image"]').getAttribute("content");
+    expect(src).toBeTruthy();
+    const body = await (await request.get(new URL(src!).pathname)).body();
+    expect(body.length).toBeGreaterThan(20_000);
+    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute("content", "summary_large_image");
+  });
+}
+
 test("banners são decorativos para leitores de tela", async ({ page }) => {
   await page.goto("/");
   const svgs = page.locator("[data-project-card] svg, [data-mystery-card] svg");

@@ -6,6 +6,7 @@ import ThemeScript from "../components/ThemeScript.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { site } from "../i18n/pt";
+import ogPadrao from "../assets/og.png";
 
 interface Props {
   title: string;
@@ -23,7 +24,8 @@ const { title, description, ogImage, type = "website", chrome = true, fixedBotto
 // Com build.format "file" o pathname do build termina em .html; a URL pública não tem extensão.
 const path = Astro.url.pathname.replace(/(\/index)?\.html$/, "") || "/";
 const canonical = new URL(path, site.url).href;
-const og = ogImage ? new URL((await getImage({ src: ogImage, width: 1200, format: "png" })).src, site.url).href : undefined;
+// Sem imagem própria (início, projetos, serviços, links), a prévia usa o cartão com nome e foto.
+const og = new URL((await getImage({ src: ogImage ?? ogPadrao, width: 1200, format: "png" })).src, site.url).href;
 const person = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -49,8 +51,8 @@ const person = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     {!noindex && <meta property="og:url" content={canonical} />}
-    {og && <meta property="og:image" content={og} />}
-    <meta name="twitter:card" content={og ? "summary_large_image" : "summary"} />
+    <meta property="og:image" content={og} />
+    <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify(person)} />
     <ThemeScript />
   </head>
