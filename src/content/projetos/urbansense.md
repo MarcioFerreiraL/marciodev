@@ -38,14 +38,14 @@ O app recebe o vídeo da câmera dos óculos, captura uma imagem, anexa a locali
 
 ## Infra e deploy
 
-A API de detecção roda numa VPS, e o repositório traz `Dockerfile` e Docker Compose para ela (Python 3.12 com as dependências do OpenCV). O app aponta para o endpoint `/predict` da VPS. As versões do app foram distribuídas como APK para instalar direto no celular.
+A API de detecção roda numa VPS, e o repositório traz `Dockerfile` e Docker Compose para ela (Python 3.12 com as dependências do OpenCV). O app aponta para o endpoint `/predict` da VPS. As versões do app foram distribuídas como [APK nos releases do GitHub](https://github.com/MarcioFerreiraL/urbansense-app/releases/latest) para instalar direto no celular.
 
 ## Minha contribuição
 
 - Implementei a captura instantânea de frame do vídeo dos óculos com `PixelCopy`, sem travar o streaming.
 - Integrei o app à API de detecção YOLO na VPS, corrigindo a rota para `/predict`, e desenhei as caixas e etiquetas de lixo e buracos sobre a imagem.
 - Criei o visualizador de foto em tela cheia e a centralização inicial do mapa nas ocorrências.
-- Gerei e publiquei as versões de APK para testes da equipe.
+- Gerei e publiquei as [versões de APK](https://github.com/MarcioFerreiraL/urbansense-app/releases/latest) para testes da equipe.
 
 ## Desafios e aprendizados
 
