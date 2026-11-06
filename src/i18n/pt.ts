@@ -60,10 +60,21 @@ export const t = {
     message: "Olá, Márcio! Vim pelo seu site e quero uma solução para o meu negócio.",
     solutionsTitle: "O que eu posso fazer por você",
     exampleLabel: "Veja um exemplo",
-    deliveredLabel: "Entregue e no ar",
+    deliveredTitle: "Já entregue",
+    delivered: [
+      {
+        name: "Lanchonete da Gordinha",
+        text: "Cardápio de encomendas para festas e eventos. O cliente escolhe pelo celular e envia o pedido pronto pelo WhatsApp.",
+        site: "https://lanchonete-gordinha.marciodev.com",
+        slug: "lanchonete-gordinha",
+        coverAlt: "Telas do cardápio de encomendas da Lanchonete da Gordinha no celular",
+      },
+    ],
+    deliveredSite: "Ver site",
+    deliveredCase: "Como foi feito",
     solutions: [
       { icon: "globe", title: "Site para o seu negócio", text: "Seu negócio aparece no Google com os serviços, horários e contato, e passa mais confiança para quem ainda não te conhece." },
-      { icon: "menu", title: "Cardápio ou catálogo online", text: "Seu cliente vê produtos e preços pelo celular e, com um toque, te chama no WhatsApp com o pedido já escrito.", example: { label: "Lanchonete da Gordinha", href: "https://lanchonete-gordinha.marciodev.com", delivered: true } },
+      { icon: "menu", title: "Cardápio ou catálogo online", text: "Seu cliente vê produtos e preços pelo celular e, com um toque, te chama no WhatsApp com o pedido já escrito.", example: { label: "Lanchonete da Gordinha", href: "/projetos/lanchonete-gordinha" } },
       { icon: "calendar", title: "Agendamento online", text: "Seus clientes marcam horário sozinhos, a qualquer hora, sem conflito de agenda e sem depender de você responder mensagem.", example: { label: "Sistema de barbearia", href: "/projetos/barbearia" } },
       { icon: "box", title: "Controle de estoque e vendas", text: "Saiba o que tem na prateleira, o que vendeu e o que precisa repor, sem planilha bagunçada." },
       { icon: "wrench", title: "Ordens de serviço e orçamentos", text: "Cada equipamento ou serviço com status, orçamento e histórico, do recebimento até a entrega.", example: { label: "Sistema de assistência técnica", href: "/projetos/assistencia-tecnica" } },

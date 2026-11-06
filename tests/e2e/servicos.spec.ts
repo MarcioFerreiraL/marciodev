@@ -14,15 +14,21 @@ test.describe("/servicos", () => {
   test("8 soluções e exemplos ligados aos projetos", async ({ page }) => {
     await page.goto("/servicos");
     await expect(page.locator("[data-solution]")).toHaveCount(8);
-    for (const href of ["/projetos/barbearia", "/projetos/assistencia-tecnica"]) {
+    for (const href of ["/projetos/lanchonete-gordinha", "/projetos/barbearia", "/projetos/assistencia-tecnica"]) {
       await expect(page.locator(`[data-solution] a[href="${href}"]`)).toHaveCount(1);
     }
   });
 
-  test("cardápio mostra o trabalho entregue, com link para o site real", async ({ page }) => {
+  test("seção Já entregue vem antes das soluções, com site real e case", async ({ page }) => {
     await page.goto("/servicos");
-    const link = page.locator('[data-solution] a[href="https://lanchonete-gordinha.marciodev.com"]');
-    await expect(link).toHaveText(/Entregue e no ar: Lanchonete da Gordinha/);
+    const titulos = await page.locator("main h2").allInnerTexts();
+    expect(titulos.slice(0, 2)).toEqual(["Já entregue", "O que eu posso fazer por você"]);
+    const card = page.locator("[data-delivered]");
+    await expect(card).toHaveCount(1);
+    await expect(card.getByRole("heading")).toHaveText("Lanchonete da Gordinha");
+    await expect(card.getByRole("img")).toBeVisible();
+    await expect(card.getByRole("link", { name: "Ver site" })).toHaveAttribute("href", "https://lanchonete-gordinha.marciodev.com");
+    await expect(card.getByRole("link", { name: "Como foi feito" })).toHaveAttribute("href", "/projetos/lanchonete-gordinha");
   });
 
   test("3 passos de como funciona", async ({ page }) => {
