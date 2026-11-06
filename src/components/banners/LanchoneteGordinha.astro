@@ -1,0 +1,65 @@
+---
+import Frame from "./Frame.astro";
+---
+<Frame id="lanchonete">
+  <!-- celular com o cardápio -->
+  <g>
+    <rect x="300" y="24" width="200" height="372" rx="26" class="fill-text" />
+    <rect x="312" y="42" width="176" height="336" rx="14" class="fill-surface" />
+    {[0, 1, 2, 3].map((i) => (
+      <g transform={`translate(0 ${i * 62})`}>
+        <rect x="326" y="64" width="72" height="11" rx="5" class={i === 1 ? "fill-purple" : "fill-muted"} />
+        <rect x="326" y="84" width="44" height="8" rx="4" class="fill-border" />
+        <circle cx="414" cy="78" r="11" class="fill-tag" />
+        <circle cx="462" cy="78" r="11" class={i === 1 ? "fill-purple" : "fill-tag"} />
+        <rect x="433" y="74" width="10" height="8" rx="3" class="fill-text" />
+      </g>
+    ))}
+    <rect x="312" y="318" width="176" height="60" rx="14" class="fill-purple" />
+    <rect x="326" y="338" width="64" height="20" rx="6" class="fill-surface" />
+    <rect x="404" y="332" width="72" height="32" rx="12" class="fill-brown" />
+  </g>
+  <!-- coxinhas -->
+  {[
+    { x: 122, y: 130, r: -14, s: 1.25 },
+    { x: 206, y: 262, r: 12, s: 0.95 },
+    { x: 84, y: 306, r: 6, s: 0.8 },
+  ].map((c) => (
+    <g transform={`translate(${c.x} ${c.y}) rotate(${c.r}) scale(${c.s})`}>
+      <path d="M0 -58C12 -30 46 -8 46 22 46 46 25 56 0 56S-46 46 -46 22C-46 -8 -12 -30 0 -58z" class="fill-brown" />
+      <path d="M-22 26c6 12 18 16 30 14" class="fill-none stroke-surface" stroke-width="5" stroke-linecap="round" />
+    </g>
+  ))}
+  <!-- brigadeiros -->
+  {[
+    { x: 60, y: 60 },
+    { x: 226, y: 66 },
+    { x: 250, y: 360 },
+  ].map((d) => (
+    <g transform={`translate(${d.x} ${d.y})`}>
+      <circle r="20" class="fill-text" />
+      <circle cx="-7" cy="-6" r="2" class="fill-brown" /><circle cx="6" cy="-9" r="2" class="fill-brown" /><circle cx="2" cy="3" r="2" class="fill-brown" />
+    </g>
+  ))}
+  <!-- pedido em balão de mensagem -->
+  <g>
+    <path d="M552 74h184a20 20 0 0 1 20 20v150a20 20 0 0 1-20 20H596l-44 40v-40a20 20 0 0 1-20-20V94a20 20 0 0 1 20-20z" class="fill-surface stroke-text" stroke-width="3" />
+    <text x="552" y="116" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="500" class="fill-text">Pedido</text>
+    {[0, 1, 2].map((i) => (
+      <g transform={`translate(0 ${i * 30})`}>
+        <circle cx="558" cy="146" r="5" class="fill-purple" />
+        <rect x="574" y="140" width={[138, 104, 122][i]} height="11" rx="5" class="fill-muted" />
+      </g>
+    ))}
+    <rect x="552" y="222" width="182" height="4" rx="2" class="fill-border" />
+    <text x="552" y="252" font-family="JetBrains Mono, monospace" font-size="17" font-weight="500" class="fill-blue">Total + sinal 30%</text>
+  </g>
+  <!-- seta do celular para a mensagem -->
+  <path d="M506 196h24m-10 -9 10 9 -10 9" class="fill-none stroke-text" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- balões de festa -->
+  <g>
+    <ellipse cx="620" cy="350" rx="26" ry="32" class="fill-blue" />
+    <ellipse cx="692" cy="344" rx="30" ry="36" class="fill-purple" />
+    <path d="M620 382v30M692 380v32" class="fill-none stroke-muted" stroke-width="2" />
+  </g>
+</Frame>

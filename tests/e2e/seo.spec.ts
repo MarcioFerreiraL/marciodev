@@ -14,9 +14,10 @@ for (const [route, url] of Object.entries(canonicals)) {
   });
 }
 
-for (const slug of ["clinics", "barbearia", "assistencia-tecnica", "urbansense"]) {
+for (const slug of ["clinics", "barbearia", "assistencia-tecnica", "urbansense", "lanchonete-gordinha"]) {
   test(`og:image de ${slug} não é placeholder`, async ({ page, request }) => {
-    await page.goto(`/projetos/${slug}`);
+    const res = await page.goto(`/projetos/${slug}`);
+    expect(res?.status()).toBe(200);
     const src = await page.locator('meta[property="og:image"]').getAttribute("content");
     const path = new URL(src!).pathname;
     const body = await (await request.get(path)).body();

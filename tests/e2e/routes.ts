@@ -6,6 +6,7 @@ export const ROUTES = [
   "/projetos/barbearia",
   "/projetos/assistencia-tecnica",
   "/projetos/urbansense",
+  "/projetos/lanchonete-gordinha",
   "/servicos",
   "/links",
   "/nao-existe",

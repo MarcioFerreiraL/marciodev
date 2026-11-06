@@ -45,7 +45,7 @@ cover: "../../assets/projetos/<slug>/cover.webp"
 ---
 ```
 
-Campos opcionais: `context`, `repo`, `demo`, `team` e `gallery` (lista de `{ src, alt }`).
+Campos opcionais: `context`, `repo`, `demo`, `demoLabel` (rótulo do link, padrão "Ver demo"), `team` e `gallery` (lista de `{ src, alt }`).
 
 ## Deploy
 

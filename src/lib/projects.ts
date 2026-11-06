@@ -13,6 +13,8 @@ export const makeProjectSchema = <I extends z.ZodType>(image: () => I) =>
       context: z.string().optional(),
       repo: z.string().url().optional(),
       demo: z.string().url().optional(),
+      /** Rótulo do link de `demo`; use em projeto em produção, que não é demonstração. */
+      demoLabel: z.string().optional(),
       team: z.array(z.string()).optional(),
       gallery: z.array(z.object({ src: image(), alt: z.string().min(1) })).optional(),
     })

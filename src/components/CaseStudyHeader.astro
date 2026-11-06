@@ -6,8 +6,9 @@ interface Props {
   tags: string[];
   repo?: string;
   demo?: string;
+  demoLabel?: string;
 }
-const { title, summary, context, tags, repo, demo } = Astro.props;
+const { title, summary, context, tags, repo, demo, demoLabel = "Ver demo" } = Astro.props;
 ---
 <header class="pt-10 pb-8">
   <a href="/projetos" class="font-mono text-sm text-blue underline-offset-4 hover:underline">← Projetos</a>
@@ -19,7 +20,7 @@ const { title, summary, context, tags, repo, demo } = Astro.props;
   </ul>
   {(repo || demo) && (
     <div class="mt-6 flex flex-wrap gap-3">
-      {demo && <a href={demo} class="rounded-lg bg-purple px-5 py-2.5 text-sm font-medium text-on-purple hover:opacity-90">Ver demo</a>}
+      {demo && <a href={demo} class="rounded-lg bg-purple px-5 py-2.5 text-sm font-medium text-on-purple hover:opacity-90">{demoLabel}</a>}
       {repo && <a href={repo} class="rounded-lg border border-border px-5 py-2.5 text-sm font-medium hover:bg-surface">Código no GitHub</a>}
     </div>
   )}

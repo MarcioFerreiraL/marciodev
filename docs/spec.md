@@ -36,11 +36,12 @@
 | 404 | No tema do site |
 
 ## Projetos
-- Destaques, nesta ordem: **Clinics**, **Sistema Barbearia**, **Assistência Técnica**, **UrbanSense**; depois o card **Observatório UPE**.
+- Destaques, nesta ordem: **Clinics**, **Sistema Barbearia**, **Assistência Técnica**, **UrbanSense**, **Lanchonete da Gordinha**; depois o card **Observatório UPE**.
 - Card: banner ilustrado 2D em SVG (cores da paleta, acompanha o tema), nome, uma frase, até 4 tags, "Ver detalhes →". Sem banner, o card usa a capa. Prints ficam só na galeria do estudo de caso.
 - Case study: contexto (disciplina/equipe), problema, solução, arquitetura (em texto; diagramas ficam para depois), infra e deploy, minha contribuição, desafios e aprendizados, galeria de prints, links (repo/demo), créditos.
 - Clinics: demo `https://clinics.marciodev.com` (no ar); equipe Márcio Ferreira Lima e Lucas Nascimento Barros; até agora Márcio fez tudo (app Flutter, API, infra); as telas da área das clínicas ficam com o Lucas. Tags: Spring Boot, Flutter, Docker, CI/CD.
 - UrbanSense: projeto de equipe para os óculos Meta; colegas citados só pelo nome: Carlos Henrique e Gabriel Lopes; contribuição do Márcio: captura de frame via PixelCopy, visualizador em tela cheia, mapa de ocorrências, integração com a API YOLO na VPS, releases de APK.
+- Lanchonete da Gordinha: site em produção em `https://lanchonete-gordinha.marciodev.com`, feito para a tia do Márcio; repositório privado, sem link de código.
 - Observatório UPE: card "em construção", sem link e sem stack. Texto: "Centralizando dados dos departamentos da Universidade de Pernambuco." / "Projeto da PROPEGI · mais detalhes em breve". Visual bloqueado (borda tracejada, cadeado).
 - Outros projetos: repositórios públicos de MarcioFerreiraL via API do GitHub a cada build, ocultando: python, php, javascript, html-css, programacao-I, programacao-II, programacao-III, perfil-web, projeto-vue-js, diario_bot, MarcioFerreiraL, e os repos já em destaque.
 
