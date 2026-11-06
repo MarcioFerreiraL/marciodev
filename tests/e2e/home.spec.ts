@@ -37,7 +37,7 @@ test.describe("home", () => {
 
   test("destaques na ordem com Ver detalhes", async ({ page }) => {
     const cards = page.locator("[data-project-card]");
-    await expect(cards).toHaveCount(4);
+    await expect(cards).toHaveCount(5);
     const hrefs = await cards.locator("a[href^='/projetos/']").evaluateAll((as) =>
       as.map((a) => a.getAttribute("href")),
     );
@@ -46,6 +46,7 @@ test.describe("home", () => {
       "/projetos/barbearia",
       "/projetos/assistencia-tecnica",
       "/projetos/urbansense",
+      "/projetos/lanchonete-gordinha",
     ]);
     for (const card of await cards.all()) await expect(card).toContainText("Ver detalhes");
   });

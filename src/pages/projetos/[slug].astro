@@ -16,7 +16,7 @@ const { Content } = await render(project);
 ---
 <Base title={`${data.title} · Márcio Ferreira Lima`} description={data.summary} ogImage={data.cover} type="article">
   <article>
-    <CaseStudyHeader title={data.title} summary={data.summary} context={data.context} tags={data.tags} repo={data.repo} demo={data.demo} />
+    <CaseStudyHeader title={data.title} summary={data.summary} context={data.context} tags={data.tags} repo={data.repo} demo={data.demo} demoLabel={data.demoLabel} />
     <div class="prose-case">
       <Content />
     </div>

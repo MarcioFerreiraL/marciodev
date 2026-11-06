@@ -35,9 +35,16 @@ test("observatório não tem página", async ({ page }) => {
   await expect(page.locator('a[href="/"]').first()).toBeVisible();
 });
 
+test("projeto em produção mostra Ver site e não tem link de código", async ({ page }) => {
+  await page.goto("/projetos/lanchonete-gordinha");
+  await expect(page.getByRole("link", { name: "Ver site", exact: true })).toHaveAttribute("href", "https://lanchonete-gordinha.marciodev.com");
+  await expect(page.getByRole("link", { name: "Ver demo" })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "Código no GitHub" })).toHaveCount(0);
+});
+
 test("lista de projetos com outros projetos", async ({ page }) => {
   await page.goto("/projetos");
-  await expect(page.locator("[data-project-card]")).toHaveCount(4);
+  await expect(page.locator("[data-project-card]")).toHaveCount(5);
   const others = page.locator("[data-other-repo]");
   expect(await others.count()).toBeGreaterThanOrEqual(1);
   const names = await others.locator("[data-repo-name]").allTextContents();
