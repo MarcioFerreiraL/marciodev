@@ -8,7 +8,7 @@ type Solution = {
   icon: "globe" | "menu" | "calendar" | "box" | "wrench" | "bolt" | "chart" | "server";
   title: string;
   text: string;
-  example?: { label: string; href: string };
+  example?: { label: string; href: string; delivered?: boolean };
 };
 
 const s = t.servicos;
@@ -41,7 +41,7 @@ const wa = whatsappLink(site.whatsapp, s.message);
             <p class="mt-3 text-sm leading-relaxed text-muted">{sol.text}</p>
             {sol.example && (
               <a href={sol.example.href} class="mt-auto pt-4 font-mono text-sm text-blue underline-offset-4 hover:underline">
-                {s.exampleLabel}: {sol.example.label} →
+                {sol.example.delivered ? s.deliveredLabel : s.exampleLabel}: {sol.example.label} →
               </a>
             )}
           </li>

@@ -58,4 +58,4 @@
 ## Fora deste plano (planos próprios)
 - Currículo LaTeX PT (com foto) e EN (sem foto), até 2 páginas, chamativo, texto selecionável; `.tex` não vai para o site.
 - Limpeza dos repositórios (descrições, fixados, prints, `bin/`/`.class`, APKs → Releases, README do perfil) — cada mudança aprovada antes do commit.
-- `/servicos` com 8 soluções: site para o negócio; cardápio/catálogo com pedido no WhatsApp; agendamento online; estoque e vendas; ordens de serviço e orçamentos; automações; painéis de dados; hospedagem e manutenção mensal. Sem preço, sem Maps.
+- `/servicos` com 8 soluções: site para o negócio; cardápio/catálogo com pedido no WhatsApp; agendamento online; estoque e vendas; ordens de serviço e orçamentos; automações; painéis de dados; hospedagem e manutenção mensal. Sem preço, sem Maps. O card de cardápio mostra a Lanchonete da Gordinha como trabalho entregue, com link para o site real.
