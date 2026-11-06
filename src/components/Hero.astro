@@ -1,5 +1,9 @@
 ---
+import ServiceIcon from "./ServiceIcon.astro";
 import { site, t } from "../i18n/pt";
+import { whatsappLink } from "../lib/whatsapp";
+
+const wa = whatsappLink(site.whatsapp, t.hero.whatsappMessage);
 ---
 <!-- No celular a foto fica ao lado do nome; no desktop, ao lado de todo o bloco. -->
 <section class="grid grid-cols-[1fr_auto] items-center gap-x-5 pt-10 pb-16 sm:gap-x-10 md:grid-rows-[auto_auto] md:pt-16">
@@ -21,6 +25,7 @@ import { site, t } from "../i18n/pt";
       {site.cvReady ? (
         <>
           <a href="/curriculo-pt.pdf" download="Marcio-Ferreira-Lima-Curriculo.pdf" class="rounded-lg bg-purple px-5 py-2.5 text-sm font-medium text-on-purple hover:opacity-90">{t.hero.cvPt}</a>
+          <a href={wa} class="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium hover:bg-surface"><ServiceIcon name="whatsapp" class="size-5" />{t.hero.whatsapp}</a>
           <a href="/curriculo-en.pdf" download="Marcio-Ferreira-Lima-Resume.pdf" class="rounded-lg border border-border px-5 py-2.5 text-sm font-medium hover:bg-surface">{t.hero.cvEn}</a>
           <a href={site.github} class="px-2 text-sm text-blue underline-offset-4 hover:underline">GitHub</a>
           <a href={site.linkedin} class="px-2 text-sm text-blue underline-offset-4 hover:underline">LinkedIn</a>
@@ -29,6 +34,7 @@ import { site, t } from "../i18n/pt";
         <>
           <a href={site.github} class="rounded-lg bg-purple px-5 py-2.5 text-sm font-medium text-on-purple hover:opacity-90">GitHub</a>
           <a href={site.linkedin} class="rounded-lg border border-border px-5 py-2.5 text-sm font-medium hover:bg-surface">LinkedIn</a>
+          <a href={wa} class="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium hover:bg-surface"><ServiceIcon name="whatsapp" class="size-5" />{t.hero.whatsapp}</a>
         </>
       )}
     </div>

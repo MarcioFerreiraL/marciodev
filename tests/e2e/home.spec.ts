@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
-import { site } from "../../src/i18n/pt";
+import { site, t } from "../../src/i18n/pt";
+import { whatsappLink } from "../../src/lib/whatsapp";
 
 test.describe("home", () => {
   test.beforeEach(async ({ page }) => {
@@ -57,11 +58,17 @@ test.describe("home", () => {
     await expect(card.locator("a")).toHaveCount(0);
   });
 
+  test("botão de WhatsApp no topo abre a conversa com a mensagem", async ({ page }) => {
+    const botao = page.getByRole("link", { name: t.hero.whatsapp, exact: true });
+    await expect(botao).toBeVisible();
+    await expect(botao).toHaveAttribute("href", whatsappLink(site.whatsapp, t.hero.whatsappMessage));
+  });
+
   test("publicação e contatos", async ({ page }) => {
     await expect(page.locator('a[href="https://doi.org/10.55034/smrv6n2-005"]')).toHaveCount(1);
     await expect(page.locator('a[href="mailto:contato@marciodev.com"]').first()).toBeVisible();
     const html = await page.content();
-    for (const banned of ["upe.br", "99906", "full-stack", "Full Stack"]) expect(html).not.toContain(banned);
+    for (const banned of ["upe.br", "full-stack", "Full Stack"]) expect(html).not.toContain(banned);
   });
 
   test("JSON-LD Person", async ({ page }) => {
