@@ -14,9 +14,15 @@ test.describe("/servicos", () => {
   test("8 soluções e exemplos ligados aos projetos", async ({ page }) => {
     await page.goto("/servicos");
     await expect(page.locator("[data-solution]")).toHaveCount(8);
-    for (const href of ["/projetos/clinics", "/projetos/barbearia", "/projetos/assistencia-tecnica"]) {
+    for (const href of ["/projetos/barbearia", "/projetos/assistencia-tecnica"]) {
       await expect(page.locator(`[data-solution] a[href="${href}"]`)).toHaveCount(1);
     }
+  });
+
+  test("cardápio mostra o trabalho entregue, com link para o site real", async ({ page }) => {
+    await page.goto("/servicos");
+    const link = page.locator('[data-solution] a[href="https://lanchonete-gordinha.marciodev.com"]');
+    await expect(link).toHaveText(/Entregue e no ar: Lanchonete da Gordinha/);
   });
 
   test("3 passos de como funciona", async ({ page }) => {
