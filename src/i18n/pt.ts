@@ -27,6 +27,8 @@ export const t = {
     interests: "Backend · DevOps · Infraestrutura",
     cvPt: "Baixar currículo",
     cvEn: "Resume (EN)",
+    whatsapp: "Falar no WhatsApp",
+    whatsappMessage: "Olá, Márcio! Vim pelo seu site e gostaria de conversar.",
   },
   about: {
     title: "Sobre",
