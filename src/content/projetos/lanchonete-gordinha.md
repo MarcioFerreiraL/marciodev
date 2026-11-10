@@ -12,7 +12,7 @@ gallery:
   - src: "../../assets/projetos/lanchonete-gordinha/inicio.webp"
     alt: "Topo do site no celular, com a logo da lanchonete, o título Encomendas para festas e eventos e o início do cardápio"
   - src: "../../assets/projetos/lanchonete-gordinha/itens.webp"
-    alt: "Cardápio de salgados fritos com botões de quantidade e o total do pedido fixo no fim da tela"
+    alt: "Cardápio de salgados fritos com a foto de cada item, botões de quantidade e o total do pedido fixo no fim da tela"
   - src: "../../assets/projetos/lanchonete-gordinha/pedido.webp"
     alt: "Revisão do pedido com data, entrega, forma de pagamento e a prévia da mensagem que será enviada"
 ---
